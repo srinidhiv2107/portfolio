@@ -1,0 +1,32 @@
+@use "mixins";
+
+.nav {
+  transform: skewX(var(--skew-angle));
+  @include mixins.displayFlex($jc: center, $fd: row, $ga: 2rem);
+  padding: 1rem 1.5rem;
+  border-left: 0.2rem solid var(--color-primary-70);
+  border-bottom: 0.1rem solid var(--color-primary-70);
+  background: transparent;
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom-left-radius: 1.2rem;
+
+  &-item {
+    @include mixins.displayFlex;
+    padding: 0.1rem 1.1rem;
+    border: 0.1rem solid var(--color-primary-80);
+    border-radius: 0.5rem;
+    background: var(--color-primary-20);
+    backdrop-filter: blur(var(--glass-blur));
+    transition: background 0.2s ease-in-out;
+    cursor: pointer;
+
+    > span {
+      color: var(--color-white);
+      transform: skewX(var(--neg-skew-angle));
+    }
+
+    &.active {
+      background: var(--color-primary-40);
+    }
+  }
+}

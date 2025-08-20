@@ -1,0 +1,33 @@
+@use "mixins";
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  > h3 {
+    font-family: "Outfit", sans-serif;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+
+  .about-content {
+    @include mixins.displayFlex($fd: column, $ga: 0.7rem);
+
+    p {
+      //color: var(--color-primary-80);
+      font-family: "Outfit", sans-serif;
+      font-weight: var(--font-light);
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        font-weight: var(--font-semibold);
+      }
+    }
+  }
+}

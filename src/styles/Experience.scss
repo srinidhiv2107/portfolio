@@ -1,0 +1,74 @@
+@use "mixins";
+
+.experience-container {
+  @include mixins.displayFlex($jc: space-evenly, $ai: center);
+  width: 90%;
+  margin: auto 0;
+}
+
+.timeline {
+  position: relative;
+  @include mixins.displayFlex($ai: flex-start, $fd: column);
+
+  .checkpoint {
+    position: relative;
+    padding-left: 2rem;
+    padding-block: 0.5em;
+    border-left: 0.1rem solid var(--color-primary-80);
+    width: 100%;
+
+    &:first-child {
+      padding-top: 1rem;
+    }
+
+    &:last-child {
+      padding-bottom: 1rem;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 2rem;
+      height: 0.1rem;
+      background: var(--color-primary-80);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 0.7rem;
+      aspect-ratio: 1/1;
+      transform: translate(calc((50% + 0.05rem) * -1), calc((50% - 0.05rem) * -1));
+      border-radius: 50%;
+      background: var(--color-primary);
+    }
+
+    .checkpoint-header {
+      flex-direction: row;
+      justify-content: flex-start;
+
+      span, h3 {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        font-weight: var(--font-medium);
+      }
+    }
+
+    & > div {
+      @include mixins.displayFlex($ai: flex-start, $fd: column, $ga: 0.4rem);
+      padding: 1rem;
+      border: 0.1rem solid var(--color-primary-80);
+      border-radius: 1rem;
+      background: var(--color-primary-10);
+
+      p {
+        font-family: "Outfit", sans-serif;
+        font-weight: var(--font-light);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}

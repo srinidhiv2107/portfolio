@@ -1,0 +1,75 @@
+@use "mixins";
+
+.header {
+  flex-shrink: 0;
+
+  @include mixins.displayFlex($jc: space-between);
+  width: 100%;
+  padding-bottom: 0.5rem;
+  position: relative;
+  background: var(--color-black-50);
+  backdrop-filter: blur(1px);
+  border-bottom: 0.1rem solid var(--color-primary-70);
+
+  &__content {
+    @include mixins.displayFlex($jc: space-between, $ai: center);
+    width: 100%;
+    padding: 0 1.5rem;
+
+    h2 {
+      font-family: "Outfit", sans-serif;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+
+      > span {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+
+  &__toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0.1rem solid var(--color-primary-70);
+    border-radius: 1rem;
+    background: var(--color-primary-20);
+    backdrop-filter: blur(var(--glass-blur));
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    @include mixins.displayFlex($jc: center, $ai: center, $ga: 0.5rem);
+
+    &:hover {
+      width: 11.25rem;
+      background: var(--color-primary-20);
+      border-color: var(--color-primary-30);
+      box-shadow: 0 0 15px var(--color-primary-40);
+    }
+
+    &.active {
+      background: var(--color-primary-40);
+      border-color: var(--color-primary-80);
+      box-shadow: 0 0 20px var(--color-primary-50);
+
+      &[data-is-stars-enabled="true"].active {
+        cursor: none;
+      }
+    }
+
+    &-text {
+      font-size: 1rem;
+      font-weight: var(--font-light);
+      color: var(--color-white);
+      white-space: nowrap;
+      display: none;
+      font-family: "Outfit", sans-serif;
+    }
+
+    &:hover &-text {
+      display: block;
+      opacity: 0.7;
+    }
+
+    &-icon {
+      font-size: 1.2rem;
+    }
+  }
+}

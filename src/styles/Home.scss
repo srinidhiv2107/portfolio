@@ -1,0 +1,11 @@
+@use "mixins";
+
+.home-container {
+  @include mixins.displayFlex($fd: column, $ga: 2rem);
+  width: 80%;
+
+  .photo-about-wrapper {
+    @include mixins.displayFlex($jc: center, $ga: 4.5rem);
+    width: 100%;
+  }
+}

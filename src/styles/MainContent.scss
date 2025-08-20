@@ -1,0 +1,21 @@
+@use "mixins";
+
+.main-content-container {
+  flex: 1;
+
+  display: flex;
+  width: 90%;
+  min-height: 0;
+  background: var(--color-black-10);
+  backdrop-filter: blur(1px);
+  border-left: 0.1rem solid var(--color-primary-70);
+  border-right: 0.1rem solid var(--color-primary-70);
+}
+
+.main-content {
+  @include mixins.displayFlex($ai: flex-start);
+  width: 100%;
+  padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
