@@ -15,9 +15,9 @@ const Header = ({ isStarTrailEnabled, handleStarTrailToggle }) => {
           title={isStarTrailEnabled ? 'Disable star trail' : 'Enable star trail'}
           data-is-stars-enabled={`${isStarTrailEnabled}`}
         >
-      <span className="header__toggle-text">
-        {isStarTrailEnabled ? 'Disable star trail' : 'Enable star trail'}
-      </span>
+          <span className="header__toggle-text">
+            {isStarTrailEnabled ? 'Disable star trail' : 'Enable star trail'}
+          </span>
           <span className="header__toggle-icon">✨</span>
         </button>
       </div>

@@ -1,12 +1,13 @@
-@use "./styles/mixins";
+@use "sass:list";
 @use "./styles/variables";
+@use "./styles/typography";
+@use "./styles/mixins";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-decoration: none;
-  //outline: 1px solid lime;
 }
 
 *::-webkit-scrollbar {
@@ -17,47 +18,28 @@ html, body {
   position: relative;
   width: 100%;
   height: 100vh;
-  font-family: var(--ff), sans-serif;
+  font-family: var(--ff), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: transparent;
   color: var(--color-white);
   overflow: hidden;
 }
 
-
-.h1 {
-  @include mixins.font-style(var(--fs-h1), 120%);
+@each $name, $vals in typography.$headings {
+  .#{$name} {
+    @include mixins.type-style(list.nth($vals, 1), list.nth($vals, 2), list.nth($vals, 3), list.nth($vals, 4))
+  }
 }
 
-.h2 {
-  @include mixins.font-style(var(--fs-h2), 120%);
+@each $name, $vals in typography.$paragraphs {
+  .#{$name} {
+    @include mixins.type-style(list.nth($vals, 1), list.nth($vals, 2), list.nth($vals, 3), list.nth($vals, 4));
+  }
 }
 
-.h3 {
-  @include mixins.font-style(var(--fs-h3), 120%);
-}
-
-.p1 {
-  @include mixins.font-style(var(--fs-p1), 150%);
-}
-
-.p2 {
-  @include mixins.font-style(var(--fs-p2), 150%);
-}
-
-.btn1, .btn2 {
-  border: none;
-  outline: none;
-  color: var(--color-black);
-  font-family: var(--ff), "sans-serif";
-  cursor: pointer;
-}
-
-.btn1 {
-  @include mixins.font-style(var(--fs-p1), 120%);
-}
-
-.btn2 {
-  @include mixins.font-style(var(--fs-p2), 120%);
+@each $name, $vals in typography.$text-utility {
+  .#{$name} {
+    @include mixins.type-style(list.nth($vals, 1), list.nth($vals, 2), list.nth($vals, 3), list.nth($vals, 4));
+  }
 }
 
 .app {

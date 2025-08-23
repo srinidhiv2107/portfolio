@@ -1,0 +1,22 @@
+$headings: (
+  "h1": (var(--fs-h1), 120%, -0.02em, var(--font-bold)),
+  "h2": (var(--fs-h2), 120%, -0.02em, var(--font-bold)),
+  "h3": (var(--fs-h3), 120%, -0.02em, var(--font-semibold)),
+  "h4": (var(--fs-h4), 120%, -0.02em, var(--font-semibold)),
+  "h5": (var(--fs-h5), 120%, -0.02em, var(--font-semibold)),
+  "h6": (var(--fs-h6), 120%, -0.02em, var(--font-medium)),
+);
+
+$paragraphs: (
+  "p1": (var(--fs-p1), 150%, 0, var(--font-regular)),
+  "p2": (var(--fs-p2), 150%, 0, var(--font-regular)),
+  "p3": (var(--fs-p3), 150%, 0, var(--font-regular)),
+  "p4": (var(--fs-p4), 150%, 0, var(--font-regular)),
+);
+
+$text-utility: (
+  "b1": (var(--fs-b1), 100%, 0.05em, var(--font-semibold)),
+  "b2": (var(--fs-b2), 100%, 0.05em, var(--font-semibold)),
+  "l1": (var(--fs-l1), 100%, 0.05em, var(--font-semibold)),
+  "l2": (var(--fs-l2), 100%, 0.05em, var(--font-semibold)),
+);

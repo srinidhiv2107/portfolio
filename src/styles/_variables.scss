@@ -33,20 +33,31 @@
   --glass-blur: 15px;
   --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
-  --ff: "Lato";
+  --ff: "Outfit";
 
-  --fs-h1: clamp(1.5rem, 0.875rem + 2.778vw, 4rem);
-  --fs-h2: clamp(1.3rem, 1rem + 1.333vw, 2.5rem);
-  --fs-h3: clamp(1rem, 0.75rem + 1.111vw, 2rem);
-  --fs-p1: clamp(0.8rem, 0.625rem + 0.778vw, 1.5rem);
-  --fs-p2: clamp(0.8rem, 0.7rem + 0.444vw, 1.2rem);
+  --fs-h1: clamp(2rem, 1.5625rem + 1.9444vw, 3.75rem); // 32 → 60px
+  --fs-h2: clamp(1.75rem, 1.4375rem + 1.3889vw, 3rem); // 28 → 48px
+  --fs-h3: clamp(1.5rem, 1.25rem + 1.1111vw, 2.5rem);  // 24 → 40px
+  --fs-h4: clamp(1.38rem, 1.225rem + 0.6889vw, 2rem);  // 22 → 32px
+  --fs-h5: clamp(1.25rem, 1.1875rem + 0.2778vw, 1.5rem); // 20 → 24px
+  --fs-h6: clamp(1.12rem, 1.0875rem + 0.1444vw, 1.25rem); // 18 → 20px
 
-  --font-light: 300;
-  --font-regular: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
+  --fs-p1: var(--fs-h5); // 20 → 24px
+  --fs-p2: var(--fs-h6); // 18 → 20px
+  --fs-p3: 1rem;   // 16px
+  --fs-p4: 0.88rem; // 14px
+
+  --fs-b1: 0.88rem; // 14px
+  --fs-b2: 0.75rem; // 12px
+  --fs-l1: 0.88rem; // 14px
+  --fs-l2: 0.75rem; // 12px
+
   --font-extrabold: 800;
+  --font-bold: 700;
+  --font-semibold: 600;
+  --font-medium: 500;
+  --font-regular: 400;
+  --font-light: 300;
 
   --skew-angle: 36deg;
   --neg-skew-angle: -36deg;

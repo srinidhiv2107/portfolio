@@ -13,9 +13,9 @@ const NavBar = () => {
           className={`nav-item ${activeSection === item ? 'active' : ''}`}
           onClick={() => setActiveSection(item)}
         >
-        <span className="p2">
+        <h4 className="h6">
           {item.charAt(0).toUpperCase() + item.slice(1)}
-        </span>
+        </h4>
         </div>
       ))}
     </div>

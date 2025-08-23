@@ -1,7 +1,8 @@
-@mixin font-style($size, $line-height) {
+@mixin type-style($size, $line-height, $letter-spacing, $weight: 400) {
   font-size: $size;
-  font-weight: var(--font-regular);
   line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  font-weight: $weight;
 }
 
 @mixin displayFlex($jc: center, $ai: center, $fd: row, $ga: 0, $fwr: nowrap) {
