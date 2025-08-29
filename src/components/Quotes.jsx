@@ -4,7 +4,6 @@ import "../styles/Quotes.scss";
 
 const Quotes = () => {
   const [quotesToggle, setQuotesToggle] = useState(true);
-  const [contentHeight, setContentHeight] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
@@ -13,12 +12,6 @@ const Quotes = () => {
   const handleQuotesToggle = () => {
     setQuotesToggle(!quotesToggle);
   }
-
-  useEffect(() => {
-    if(contentRef.current) {
-      setContentHeight(quotesToggle ? contentRef.current.scrollHeight : 0);
-    }
-  }, [quotesToggle]);
 
   useEffect(() => {
     if(!quotesToggle) return;
@@ -43,7 +36,7 @@ const Quotes = () => {
       if (displayText.length > 0) {
         timeoutId = setTimeout(() => {
           setDisplayText(displayText.slice(0, -1));
-        }, 30); // Erasing speed (faster than typing)
+        }, 35); // Erasing speed (faster than typing)
       } else {
         // Move to the next quote
         timeoutId = setTimeout(() => {
@@ -75,17 +68,18 @@ const Quotes = () => {
             arrow_drop_down
           </span>
       </div>
-      <div
-        className={`quotes-display ${quotesToggle ? 'open' : 'closed'}`}
-        style={{ height: `${contentHeight}px` }}
-      >
-        <div ref={contentRef} className="quotes-display-content">
-          <div className="quotes-display-line"></div>
-          <p className="quotes-display-text">
-            {displayText}
-          </p>
+      {quotesToggle &&
+        <div
+          className={`quotes-display ${quotesToggle ? 'open' : 'closed'}`}
+        >
+          <div ref={contentRef} className="quotes-display-content">
+            <div className="quotes-display-line"></div>
+            <p className="quotes-display-text">
+              <span>{displayText}</span><span></span>
+            </p>
+          </div>
         </div>
-      </div>
+      }
     </div>
   );
 };

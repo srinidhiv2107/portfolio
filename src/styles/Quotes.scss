@@ -44,8 +44,8 @@
 
   &-display {
     @include mixins.displayFlex($jc: flex-start);
-    min-width: 40vw;
-    //width: fit-content;
+    width: 45vw;
+    height: max-content;
     transition: all 0.4s ease-in-out;
 
     &.closed {
@@ -57,8 +57,8 @@
     }
 
     &-content {
-      @include mixins.displayFlex($ga: 0.5rem, $fd: row);
-      padding: 0.8rem 2rem  0.8rem 1rem;
+      @include mixins.displayFlex($ga: 1rem, $fd: row);
+      padding: 0.5rem 2rem  0.5rem 1rem;
       transition: all 1s ease-in-out;
     }
 
@@ -67,6 +67,7 @@
     }
 
     &-line {
+      align-self: stretch;
       width: 0.3rem;
       min-height: 2rem;
       transform: skewX(var(--neg-skew-angle)) skewY(var(--neg-skew-angle));
@@ -76,23 +77,27 @@
 
     &-text {
       transform: skewX(var(--neg-skew-angle));
-      @include mixins.displayFlex;
-      font-size: 1.1rem;
-      text-wrap: wrap;
       padding-right: 0.2rem;
-      border-right: 0.2rem solid var(--color-primary-70);
-      animation: blink 1s step-start infinite;
+      font-size: 1.1rem;
+      line-height: 150%;
+
+      span:first-child {
+        display: inline;
+      }
+
+      span:last-child {
+        display: inline-block;
+        margin-left: 0.15rem;
+        width: 0.2rem;
+        height: 1.5em;
+        vertical-align: top;
+        background: var(--color-primary-90);
+        animation: blink 1s step-start infinite;
+      }
     }
   }
 }
 
 @keyframes blink {
-  0%, 50% {
-    border-color: var(--color-primary-70);
-    box-shadow: 0 0 5px rgba(var(--color-primary-70), 0.5);
-  }
-  51%, 100% {
-    border-color: transparent;
-    box-shadow: none;
-  }
+  50% { opacity: 0; }
 }
