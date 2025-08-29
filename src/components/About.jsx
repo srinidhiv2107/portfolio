@@ -4,7 +4,7 @@ import "../styles/About.scss";
 const About = () => {
   return (
     <div className="about">
-      <h3 className="h3">About Me</h3>
+      <h4 className="h4">About Me</h4>
       <div className="about-content">
         <p className="p2">
           I'm <strong>Srinidhi V</strong>, a recent Computer Science graduate from NIE, Mysuru.

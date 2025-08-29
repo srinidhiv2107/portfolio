@@ -27,48 +27,24 @@ const workData = [
     role: "Application Developer",
     company: "Thoughtworks",
     duration: "June 2025 – Present",
-    description: "Worked on building responsive UIs from Figma designs using React and SCSS.",
-    skills: ["React", "SCSS", "Responsive Design"]
+    description: "Currently, I’m working at Thoughtworks, where I started with training in React and Spring Boot, and I’m now exploring Android development using Kotlin while continuing to grow as a developer and learn modern software engineering practices.",
+    skills: []
   },
   {
     role: "Frontend Developer Intern",
     company: "Elementure",
     duration: "Jan 2025 – May 2025",
-    description: "Worked on building responsive UIs from Figma designs using React and SCSS.",
-    skills: ["React", "SCSS", "Responsive Design"]
+    description: "At Elementure, I worked on developing Figma-based responsive websites using React. Along the way, I gained hands-on experience with SCSS, Tailwind CSS, and Google Cloud Platform (GCP). This role helped me refine my frontend development skills and adapt to real-world design-to-code workflows.",
+    skills: ["React", "Express", "SCSS", "Tailwind", "GCP"]
   },
   {
     role: "Web Development Intern",
     company: "Rexsatronix",
     duration: "Jun 2024 – Aug 2024",
-    description: "Developed dashboards and internal tools using React and Express.",
-    skills: ["React", "Express", "MongoDB"]
+    description: "This is where my journey in web development began. I explored the fundamentals of frontend and backend development and got introduced to React. This internship gave me a solid foundation in building dynamic and interactive web applications.",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Express"]
   }
 ];
-
-const styles = {
-  heading: {
-    fontSize: "1.3rem",
-  },
-  subHeading: {
-    fontSize: "1.2rem",
-  },
-  text: {
-    fontSize: "1rem",
-  },
-  label: {
-    padding: "0.1rem 0.5rem",
-    border: "0.1rem solid var(--color-primary-80)",
-    borderRadius: "0.5rem",
-    background: "var(--color-primary-20)",
-  },
-  wrapper: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "100%",
-  }
-};
 
 const Experience = () => {
   const renderTimeline = (type, icon, data) => {
@@ -76,19 +52,19 @@ const Experience = () => {
       <div className="timeline">
         <div className="checkpoint">
           <div className="checkpoint-header">
-            <span className="material-symbols-rounded h3">{icon}</span>
-            <h3 className="h3">{type}</h3>
+            <span className="material-symbols-rounded h4">{icon}</span>
+            <h4 className="h4">{type}</h4>
           </div>
         </div>
         {type === "Education"? (
           data.map((edu, index) => (
             <div className="checkpoint" key={`edu-${index}`}>
               <div>
-                <p style={styles.heading}>{edu.school}</p>
-                <p style={styles.subHeading}>{edu.course}</p>
-                <div style={styles.wrapper}>
-                  <p style={{ ...styles.text, ...styles.label }}>{edu.score}</p>
-                  <p style={styles.text}>{edu.duration}</p>
+                <p className="heading">{edu.school}</p>
+                <p className="sub-heading">{edu.course}</p>
+                <div className="wrapper">
+                  <p className="l2 label">{edu.score}</p>
+                  <p className="l1">{edu.duration}</p>
                 </div>
               </div>
             </div>
@@ -97,15 +73,15 @@ const Experience = () => {
           data.map((work, index) => (
             <div className="checkpoint" key={`work-${index}`}>
               <div>
-                <p style={styles.heading}>{work.role}</p>
-                <div style={styles.wrapper}>
-                  <p style={styles.subHeading}>{work.company}</p>
-                  <p style={styles.text}>{work.duration}</p>
+                <p className="heading">{work.role}</p>
+                <div className="wrapper">
+                  <p className="sub-heading">{work.company}</p>
+                  <p className="text">{work.duration}</p>
                 </div>
-                <p style={{...styles.text}}>{work?.description}</p>
-                <div style={{...styles.wrapper, justifyContent: "flex-start", gap: "0.4rem"}}>
+                <p className="text">{work?.description}</p>
+                <div className="wrapper" style={{ justifyContent: "flex-start", gap: "0.4rem" }}>
                   {work?.skills.map((skill, i) => (
-                    <p key={i} style={styles.label}>{skill}</p>
+                    <p key={i} className="l2 label">{skill}</p>
                   ))}
                 </div>
               </div>

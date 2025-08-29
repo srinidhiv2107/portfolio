@@ -1,0 +1,98 @@
+@use "mixins";
+
+.quotes {
+  @include mixins.displayFlex($ai: flex-start, $fd: column);
+
+  &-label, &-display {
+    transform: skewX(var(--skew-angle));
+    background: transparent;
+    backdrop-filter: blur(var(--glass-blur));
+    border-top-right-radius: 1.2rem;
+    border-top: 0.1rem solid var(--color-primary-70);
+    border-right: 0.15rem solid var(--color-primary-70);
+  }
+
+  &-label {
+    @include mixins.displayFlex($ga: 0.5rem);
+    padding: 0.4rem 1.5rem 0.4rem 1rem;
+
+    p, span {
+      transform: skewX(var(--neg-skew-angle));
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 1.2rem;
+      border: 0.1rem solid var(--color-primary-70);
+      border-radius: 0.5rem;
+      background: var(--color-primary-20);
+      backdrop-filter: blur(var(--glass-blur));
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      &.arrow-icon {
+        &.rotated {
+          transform: skewX(var(--neg-skew-angle)) rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &-display {
+    @include mixins.displayFlex($jc: flex-start);
+    min-width: 40vw;
+    //width: fit-content;
+    transition: all 0.4s ease-in-out;
+
+    &.closed {
+      opacity: 0;
+    }
+
+    &.open {
+      opacity: 1;
+    }
+
+    &-content {
+      @include mixins.displayFlex($ga: 0.5rem, $fd: row);
+      padding: 0.8rem 2rem  0.8rem 1rem;
+      transition: all 1s ease-in-out;
+    }
+
+    &.closed &-content {
+      visibility: hidden;
+    }
+
+    &-line {
+      width: 0.3rem;
+      min-height: 2rem;
+      transform: skewX(var(--neg-skew-angle)) skewY(var(--neg-skew-angle));
+      background: var(--color-primary-70);
+      flex-shrink: 0;
+    }
+
+    &-text {
+      transform: skewX(var(--neg-skew-angle));
+      @include mixins.displayFlex;
+      font-size: 1.1rem;
+      text-wrap: wrap;
+      padding-right: 0.2rem;
+      border-right: 0.2rem solid var(--color-primary-70);
+      animation: blink 1s step-start infinite;
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    border-color: var(--color-primary-70);
+    box-shadow: 0 0 5px rgba(var(--color-primary-70), 0.5);
+  }
+  51%, 100% {
+    border-color: transparent;
+    box-shadow: none;
+  }
+}

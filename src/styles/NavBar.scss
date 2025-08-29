@@ -2,8 +2,8 @@
 
 .nav {
   transform: skewX(var(--skew-angle));
-  @include mixins.displayFlex($jc: center, $fd: row, $ga: 2rem);
-  padding: 1rem 1.5rem;
+  @include mixins.displayFlex($jc: center, $fd: row, $ga: 1rem);
+  padding: 0.7rem 1.5rem;
   border-left: 0.2rem solid var(--color-primary-70);
   border-bottom: 0.1rem solid var(--color-primary-70);
   background: transparent;
@@ -12,7 +12,7 @@
 
   &-item {
     @include mixins.displayFlex;
-    padding: 0.1rem 1.1rem;
+    padding: 0 1.2rem;
     border: 0.1rem solid var(--color-primary-80);
     border-radius: 0.5rem;
     background: var(--color-primary-20);
@@ -20,8 +20,9 @@
     transition: background 0.2s ease-in-out;
     cursor: pointer;
 
-    > h4 {
+    > p {
       transform: skewX(var(--neg-skew-angle));
+      font-size: 1rem;
     }
 
     &.active {

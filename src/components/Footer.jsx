@@ -1,109 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { quotes } from "./Quotes.jsx";
 import "../styles/Footer.scss";
+import Quotes from "./Quotes.jsx";
 
 const Footer = () => {
-  const [quotesToggle, setQuotesToggle] = useState(true);
   const [contactToggle, setContactToggle] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);
   const [contactFormHeight, setContactFormHeight] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
-  const contentRef = useRef(null);
   const contactFormRef = useRef(null);
-
-  const handleQuotesToggle = () => {
-    setQuotesToggle(!quotesToggle);
-  }
 
   const handleContactToggle = () => {
     setContactToggle(!contactToggle);
   }
 
-  // Handle quotes section height animation
-  useEffect(() => {
-    if(contentRef.current) {
-      setContentHeight(quotesToggle ? contentRef.current.scrollHeight : 0);
-    }
-  }, [quotesToggle]);
-
-  // Handle contact form height animation
   useEffect(() => {
     if(contactFormRef.current) {
       setContactFormHeight(contactToggle ? contactFormRef.current.scrollHeight : 0);
     }
   }, [contactToggle]);
 
-  useEffect(() => {
-    if(!quotesToggle) return;
-
-    const currentQuote = quotes[currentQuoteIndex];
-    let timeoutId;
-
-    if(isTyping) {
-      // Typing animation
-      if (displayText.length < currentQuote.length) {
-        timeoutId = setTimeout(() => {
-          setDisplayText(currentQuote.slice(0, displayText.length + 1));
-        }, 50); // Typing speed
-      } else {
-        // Pause before erasing
-        timeoutId = setTimeout(() => {
-          setIsTyping(false);
-        }, 7000);
-      }
-    } else {
-      // Erasing animation
-      if (displayText.length > 0) {
-        timeoutId = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, 30); // Erasing speed (faster than typing)
-      } else {
-        // Move to the next quote
-        timeoutId = setTimeout(() => {
-          setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-          setIsTyping(true);
-        }, 500);
-      }
-    }
-
-    return () => clearTimeout(timeoutId);
-  }, [displayText, currentQuoteIndex, isTyping, quotesToggle, quotes]);
-
-  // Reset animation when a quotes section is toggled
-  useEffect(() => {
-    if (quotesToggle) {
-      setDisplayText('');
-      // setCurrentQuoteIndex(0);
-      setIsTyping(true);
-    }
-  }, [quotesToggle]);
-
   return (
     <div className="footer">
-      <div className="footer__quotes">
-        <div className="footer__quotes-label">
-          <p className="p2">Quotes</p>
-          <span
-            className={`material-symbols-rounded arrow-icon ${quotesToggle ? 'rotated' : ''}`}
-            onClick={handleQuotesToggle}
-          >
-            arrow_drop_down
-          </span>
-        </div>
-        <div
-          className={`footer__quotes-display ${quotesToggle ? 'open' : 'closed'}`}
-          style={{ height: `${contentHeight}px` }}
-        >
-          <div ref={contentRef} className="footer__quotes-display-content">
-            <div className="footer__quotes-display-line"></div>
-            <p className="footer__quotes-display-text p2">
-              {displayText}
-            </p>
-          </div>
-        </div>
-      </div>
+      <Quotes />
       <div className="footer__contact">
         <div
           className="footer__contact-label"

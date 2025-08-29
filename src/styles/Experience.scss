@@ -1,12 +1,14 @@
 @use "mixins";
 
 .experience-container {
-  @include mixins.displayFlex($jc: space-evenly, $ai: center);
+  @include mixins.displayFlex($jc: space-evenly, $ai: flex-start, $ga: 2rem);
   width: 90%;
   margin: auto 0;
 }
 
 .timeline {
+  //flex: 1;
+  width: 45%;
   position: relative;
   @include mixins.displayFlex($ai: flex-start, $fd: column);
 
@@ -51,7 +53,7 @@
       flex-direction: row;
       justify-content: flex-start;
 
-      span, h3 {
+      span, h4 {
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         font-weight: var(--font-medium);
       }
@@ -59,15 +61,34 @@
 
     & > div {
       @include mixins.displayFlex($ai: flex-start, $fd: column, $ga: 0.4rem);
-      padding: 1rem;
+      padding: 0.7rem 1rem;
       border: 0.1rem solid var(--color-primary-80);
       border-radius: 1rem;
       background: var(--color-primary-10);
 
       p {
-        font-family: "Outfit", sans-serif;
-        font-weight: var(--font-light);
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+
+      .heading {
+        font-size: 1.2rem;
+      }
+      .sub-heading {
+        font-size: 1.1rem;
+      }
+      .text {
+        font-size: 0.9rem;
+        line-height: 150%;
+      }
+      .label {
+        padding: 0.3rem 0.5rem;
+        border: 0.1rem solid var(--color-primary-80);
+        border-radius: 0.5rem;
+        background: var(--color-primary-20);
+      }
+      .wrapper {
+        @include mixins.displayFlex($jc: space-between);
+        width: 100%;
       }
     }
   }

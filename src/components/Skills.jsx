@@ -63,7 +63,7 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <div key={index} className="skills-view__item">
             <img className="skills-view__icon" src={skill.icon} alt={skill.name}/>
-            <span className="skills-view__name">{skill.name}</span>
+            <span className="skills-view__name l1">{skill.name}</span>
           </div>
         ))}
       </div>
@@ -73,10 +73,10 @@ const Skills = () => {
   return (
     <div className="skills-container">
       <div className="skills-header">
-        <h3 className="h3">Skills</h3>
+        <h4 className="h4">Skills</h4>
 
         <button
-          className="skills-header__toggle"
+          className="skills-header__toggle b2"
           onClick={toggleView}
         >
           {isCompactView ? 'Animated View' : 'Compact View'}

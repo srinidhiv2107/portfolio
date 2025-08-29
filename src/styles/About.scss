@@ -7,7 +7,6 @@
   gap: 1rem;
 
   > h3 {
-    font-family: "Outfit", sans-serif;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
   }
 
@@ -15,9 +14,7 @@
     @include mixins.displayFlex($fd: column, $ga: 0.7rem);
 
     p {
-      //color: var(--color-primary-80);
-      font-family: "Outfit", sans-serif;
-      font-weight: var(--font-light);
+      font-weight: var(--font-regular);
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 
       &:last-child {
@@ -26,7 +23,7 @@
 
       strong {
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-        font-weight: var(--font-semibold);
+        font-weight: var(--font-medium);
       }
     }
   }

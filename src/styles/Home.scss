@@ -3,6 +3,7 @@
 .home-container {
   @include mixins.displayFlex($fd: column, $ga: 2rem);
   width: 80%;
+  margin: auto 0;
 
   .photo-about-wrapper {
     @include mixins.displayFlex($jc: center, $ga: 4.5rem);

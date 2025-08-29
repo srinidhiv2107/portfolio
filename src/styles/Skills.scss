@@ -10,7 +10,6 @@
     padding: 0.5rem;
 
     > h3 {
-      font-family: "Outfit", sans-serif;
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
     }
 
@@ -20,7 +19,7 @@
       border: 0.1rem solid var(--color-primary-30);
       color: var(--color-primary);
       font-family: "Outfit", sans-serif;
-      font-size: 0.9rem;
+      //font-size: 0.9rem;
       background: var(--color-primary-10);
       cursor: pointer;
       transition: all 0.3s ease-in-out;
@@ -54,10 +53,11 @@
     &__compact .skills-view__item {
       flex-direction: row;
       margin: 0;
+      padding: 0.5rem;
     }
 
     &__compact .skills-view__icon {
-      height: 2em;
+      height: 1.5em;
     }
 
     &__item {
@@ -79,10 +79,9 @@
 
     &__name {
       font-family: "Outfit", sans-serif;
-      font-size: 1rem;
+      //font-size: 1rem;
       font-weight: var(--font-light);
       text-wrap: nowrap;
-      //color: var(--color-primary);
     }
   }
 }
