@@ -1,0 +1,140 @@
+@use "mixins";
+
+.contact {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  @include mixins.displayFlex($ai: flex-end, $fd: column);
+
+  &-label {
+    transform: skewX(var(--neg-skew-angle));
+    @include mixins.displayFlex($jc: center, $ga: 0.5rem);
+    padding: 0.4rem 1rem 0.4rem 1.5rem;
+    border-top-left-radius: 1.2rem;
+    border-top: 0.1rem solid var(--color-primary-70);
+    border-left: 0.15rem solid var(--color-primary-70);
+    background: transparent;
+    backdrop-filter: blur(var(--glass-blur));
+
+    &[data-form-open="true"] {
+      background: var(--color-black);
+    }
+
+    p, span {
+      transform: skewX(var(--skew-angle));
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 1.2rem;
+      cursor: pointer;
+      background: var(--color-primary-20);
+      border: 0.1rem solid var(--color-primary-70);
+      border-radius: 0.5rem;
+      backdrop-filter: blur(var(--glass-blur));
+      transition: transform 0.3s ease;
+
+      &.arrow-icon {
+        &.rotated {
+          transform: skewX(var(--skew-angle)) rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &-form {
+    display: grid;
+    grid-template-rows: 0fr;
+    width: 30vw;
+    border-top-left-radius: 1.2rem;
+    border-top: 0.1rem solid var(--color-primary-70);
+    border-left: 0.1rem solid var(--color-primary-70);
+    background: var(--color-black);
+    backdrop-filter: blur(var(--glass-blur));
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+
+    &.open {
+      grid-template-rows: 1fr;
+      padding: 1rem 1.5rem;
+      opacity: 1;
+    }
+
+    &-content {
+      @include mixins.displayFlex($jc: center, $ga: 1rem, $fd: column);
+      width: 100%;
+      min-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease-in-out;
+
+      p {
+        opacity: 1;
+        font-weight: var(--font-medium);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        transition: all 0.2s ease-in-out;
+      }
+
+      form {
+        @include mixins.displayFlex($ai: stretch, $ga: 1rem, $fd: column);
+        width: 100%;
+
+        input, textarea {
+          padding: 0.5rem;
+          color: var(--color-white);
+          font-family: inherit;
+          font-size: 1rem;
+          border: 0.1rem solid var(--color-primary-70);
+          border-radius: 0.4rem;
+          background: transparent;
+          backdrop-filter: blur(var(--glass-blur));
+          transition: all 0.3s ease;
+
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+          }
+
+          &:focus {
+            outline: none;
+            border-color: rgba(65, 105, 225, 1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+          }
+        }
+
+        textarea {
+          resize: none;
+        }
+
+        button {
+          @include mixins.displayFlex($jc: center, $ga: 0.5rem);
+          padding: 0.5rem;
+          color: var(--color-white);
+          font-family: inherit;
+          font-size: 1rem;
+          border: 0.1rem solid var(--color-primary-70);
+          border-radius: 0.4rem;
+          background: var(--color-primary-20);
+          backdrop-filter: blur(var(--glass-blur));
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          span {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease-in-out;
+          }
+
+          &:hover {
+            box-shadow: 0 0 15px var(--color-primary-50);
+          }
+
+          &:hover span {
+            transform: translateX(4px);
+          }
+        }
+      }
+    }
+  }
+}

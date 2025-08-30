@@ -7,7 +7,6 @@
 }
 
 .timeline {
-  //flex: 1;
   width: 45%;
   position: relative;
   @include mixins.displayFlex($ai: flex-start, $fd: column);
@@ -92,4 +91,9 @@
       }
     }
   }
+}
+
+.all-skills-button {
+  color: var(--color-white);
+  cursor: pointer;
 }

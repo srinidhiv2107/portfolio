@@ -24,6 +24,11 @@ html, body {
   overflow: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
 @each $name, $vals in typography.$headings {
   .#{$name} {
     @include mixins.type-style(list.nth($vals, 1), list.nth($vals, 2), list.nth($vals, 3), list.nth($vals, 4))
@@ -44,7 +49,7 @@ html, body {
 
 .app {
   position: relative;
-  @include mixins.displayFlex($jc: space-between, $fd: column);
+  @include mixins.displayFlex($jc: center, $fd: column);
   height: 100vh;
   z-index: 1;
 }

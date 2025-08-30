@@ -4,13 +4,16 @@ import c from "../assets/icons/C.svg";
 import cpp from "../assets/icons/CPP.svg";
 import js from "../assets/icons/JavaScript.svg";
 import java from "../assets/icons/Java.svg";
+import kotlin from "../assets/icons/Kotlin.svg";
 import html from "../assets/icons/HTML.svg";
 import css from "../assets/icons/CSS.svg";
 import sass from "../assets/icons/Sass.svg";
+import MUI from "../assets/icons/MUI.svg";
 import tailwind from "../assets/icons/TailwindCSS.svg";
 import nodejs from "../assets/icons/NodeJS.svg";
 import react from "../assets/icons/React.svg";
 import express from "../assets/icons/Express.svg";
+import vite from "../assets/icons/Vite.svg";
 import spring from "../assets/icons/Spring.svg";
 import jest from "../assets/icons/Jest.svg";
 import cypress from "../assets/icons/Cypress.svg";
@@ -30,13 +33,16 @@ const skills = [
   { name: "C++", icon: cpp },
   { name: "JavaScript", icon: js },
   { name: "Java", icon: java },
+  { name: "Kotlin", icon: kotlin },
   { name: "HTML", icon: html },
   { name: "CSS", icon: css },
   { name: "SCSS", icon: sass },
+  { name: "MUI", icon: MUI },
   { name: "Tailwind", icon: tailwind },
   { name: "NodeJS", icon: nodejs },
   { name: "React", icon: react },
   { name: "Express", icon: express },
+  { name: "Vite", icon: vite },
   { name: "Spring Boot", icon: spring },
   { name: "Jest", icon: jest },
   { name: "Cypress", icon: cypress },

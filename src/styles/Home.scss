@@ -5,8 +5,12 @@
   width: 80%;
   margin: auto 0;
 
-  .photo-about-wrapper {
+  .photo-links-about-wrapper {
     @include mixins.displayFlex($jc: center, $ga: 4.5rem);
     width: 100%;
+
+    .photo-links-wrapper {
+      @include mixins.displayFlex($fd: column, $jc: center, $ga: 1rem);
+    }
   }
 }

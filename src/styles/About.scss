@@ -14,16 +14,22 @@
     @include mixins.displayFlex($fd: column, $ga: 0.7rem);
 
     p {
+      font-size: 1.1rem;
       font-weight: var(--font-regular);
+      line-height: 150%;
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-
-      &:last-child {
-        margin-bottom: 0;
-      }
 
       strong {
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         font-weight: var(--font-medium);
+      }
+
+      .profile-link {
+        color: var(--color-white);
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

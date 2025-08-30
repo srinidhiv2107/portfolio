@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { quotes } from "./QuotesList.jsx";
 import "../styles/Quotes.scss";
 
 const Quotes = () => {
-  const [quotesToggle, setQuotesToggle] = useState(true);
+  const [quotesToggle, setQuotesToggle] = useState(false);
   const [displayText, setDisplayText] = useState('');
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
-  const contentRef = useRef(null);
 
   const handleQuotesToggle = () => {
     setQuotesToggle(!quotesToggle);
@@ -29,7 +28,7 @@ const Quotes = () => {
         // Pause before erasing
         timeoutId = setTimeout(() => {
           setIsTyping(false);
-        }, 7000);
+        }, 5000);
       }
     } else {
       // Erasing animation
@@ -65,21 +64,17 @@ const Quotes = () => {
           className={`material-symbols-rounded arrow-icon ${quotesToggle ? 'rotated' : ''}`}
           onClick={handleQuotesToggle}
         >
-            arrow_drop_down
+            arrow_drop_up
           </span>
       </div>
-      {quotesToggle &&
-        <div
-          className={`quotes-display ${quotesToggle ? 'open' : 'closed'}`}
-        >
-          <div ref={contentRef} className="quotes-display-content">
-            <div className="quotes-display-line"></div>
-            <p className="quotes-display-text">
-              <span>{displayText}</span><span></span>
-            </p>
-          </div>
+      <div className={`quotes-display ${quotesToggle ? 'open' : ''}`}>
+        <div className="quotes-display-content">
+          <div className="quotes-display-content-line"></div>
+          <p className="quotes-display-content-text">
+            <span>{displayText}</span><span></span>
+          </p>
         </div>
-      }
+      </div>
     </div>
   );
 };

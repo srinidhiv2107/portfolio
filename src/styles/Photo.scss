@@ -99,11 +99,11 @@
   box-shadow: 0 0 min(10px, 2.5vw) rgba(0, 255, 150, 0.6);
 }
 
-@keyframes gentleFloat {
-  0%, 100% { transform: translateY(0px); }
-  33% { transform: translateY(min(-1px, -2vw)); }
-  66% { transform: translateY(min(3px, 1vw)); }
-}
+//@keyframes gentleFloat {
+//  0%, 100% { transform: translateY(0px); }
+//  33% { transform: translateY(min(-1px, -2vw)); }
+//  66% { transform: translateY(min(3px, 1vw)); }
+//}
 
 @keyframes orbit1 {
   from { transform: rotateX(70deg) rotateZ(0deg); }

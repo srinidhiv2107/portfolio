@@ -1,0 +1,7 @@
+@use "mixins";
+
+.social-links {
+  @include mixins.displayFlex($ga: 0.7rem);
+  width: 100%;
+  z-index: 1;
+}

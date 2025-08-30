@@ -1,4 +1,5 @@
 import React from 'react';
+import { useActiveSectionContext } from "../contexts/ActiveSectionContextProvider.jsx";
 import "../styles/Experience.scss";
 
 const educationData = [
@@ -28,7 +29,6 @@ const workData = [
     company: "Thoughtworks",
     duration: "June 2025 – Present",
     description: "Currently, I’m working at Thoughtworks, where I started with training in React and Spring Boot, and I’m now exploring Android development using Kotlin while continuing to grow as a developer and learn modern software engineering practices.",
-    skills: []
   },
   {
     role: "Frontend Developer Intern",
@@ -47,6 +47,12 @@ const workData = [
 ];
 
 const Experience = () => {
+  const { setActiveSection } = useActiveSectionContext();
+
+  const handleAllSkillsButtonClick = () => {
+    setActiveSection("home");
+  };
+
   const renderTimeline = (type, icon, data) => {
     return (
       <div className="timeline">
@@ -80,7 +86,14 @@ const Experience = () => {
                 </div>
                 <p className="text">{work?.description}</p>
                 <div className="wrapper" style={{ justifyContent: "flex-start", gap: "0.4rem" }}>
-                  {work?.skills.map((skill, i) => (
+                  {work.company === "Thoughtworks"?
+                    <button
+                      className="all-skills-button l2 label"
+                      onClick={handleAllSkillsButtonClick}
+                    >
+                      View my current skills
+                    </button>
+                    : work.skills.map((skill, i) => (
                     <p key={i} className="l2 label">{skill}</p>
                   ))}
                 </div>
@@ -93,7 +106,7 @@ const Experience = () => {
   }
 
   return (
-    <div className="experience-container">
+    <div id={"test"} className="experience-container">
       {renderTimeline("Education", "book", educationData)}
       {renderTimeline("Work", "work", workData)}
     </div>

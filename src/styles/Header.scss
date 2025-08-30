@@ -1,7 +1,7 @@
 @use "mixins";
 
 .header {
-  flex-shrink: 0;
+  //flex-shrink: 0;
 
   @include mixins.displayFlex($jc: space-between, $ai: flex-start);
   width: 100%;
