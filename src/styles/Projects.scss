@@ -1,11 +1,88 @@
 @use "mixins";
 
 .projects-container {
-  @include mixins.displayFlex($fd: column, $ga: 2rem);
-  width: 90%;
+  @include mixins.displayFlex($fd: column, $ga: 1rem);
+  width: 100%;
+  padding: 0 2rem;
 
   > h4 {
+    width: 100%;
+    padding-left: 0.5rem;
+    text-align: start;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+
+  .project-carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include mixins.displayFlex($fd: column, $jc: center, $ai: center);
+    width: 100%;
+    height: 100%;
+    background: var(--color-black-70);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    cursor: pointer;
+
+    // Opening animation
+    &.opening {
+      animation: carouselFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+      .carousel-content {
+        animation: carouselSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+    }
+
+    // Closing animation
+    &.closing {
+      animation: carouselFadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+      .carousel-content {
+        animation: carouselSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+    }
+
+    .carousel-content {
+      @include mixins.displayFlex($fd: column, $ai: center, $ga: 2rem);
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      cursor: default;
+    }
+
+    .project-carousel-close-btn {
+      position: absolute;
+      top: -60px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 0.8rem;
+      color: var(--color-white);
+      font-size: 1.2rem;
+      outline: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: "Outfit", sans-serif;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      @include mixins.displayFlex($jc: center, $ai: center);
+      width: 48px;
+      height: 48px;
+
+      .material-symbols-rounded {
+        font-size: 24px;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
   }
 
   .projects-grid {
@@ -14,28 +91,183 @@
     grid-gap: 1rem;
     width: 100%;
 
-    > div {
-      transition: transform 0.3s ease;
+    .project-grid-item {
+      @include mixins.displayFlex($jc: flex-start, $fd: column);
+      border: 0.1rem solid var(--color-primary-80);
+      border-radius: 0.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
-        transform: scale(1.4);
-        z-index: 2;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        border-color: var(--color-primary-60);
       }
 
-      /* First column */
-      &:nth-child(3n + 1):hover {
-        transform-origin: bottom left;
+      .carousel-wrapper {
+        flex: 1;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
       }
 
-      /* Middle column */
-      &:nth-child(3n + 2):hover {
-        transform-origin: bottom center;
+      p {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
       }
 
-      /* Last column */
-      &:nth-child(3n + 3):hover {
-        transform-origin: bottom right;
+      .project-title {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border-bottom: 0.1rem solid var(--color-primary-80);
+        background: transparent;
+
+        .title {
+          font-size: 2rem;
+        }
       }
+
+      .project-data {
+        flex: 1;
+        @include mixins.displayFlex($jc: flex-start, $ai: flex-start, $fd: column, $ga: 0.4rem);
+        padding: 0.7rem 1rem;
+        background: var(--color-primary-10);
+
+        .project-cta-gallery {
+          color: var(--color-white);
+          background: none;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          padding: 0.2rem 0;
+
+          &:disabled {
+            color: var(--color-primary-80);
+            cursor: not-allowed;
+
+            &:hover {
+              color: var(--color-primary-80);
+              transform: none;
+            }
+          }
+        }
+
+        .project-cta-link {
+          @include mixins.displayFlex($ga: 0.2rem);
+          font-size: 1rem;
+          line-height: 150%;
+          color: var(--color-white);
+          transition: all 0.2s ease;
+
+          span {
+            font-size: 1rem;
+            transition: transform 0.2s ease;
+          }
+        }
+
+        .text {
+          font-size: 0.9rem;
+          line-height: 150%;
+        }
+
+        .label {
+          padding: 0.3rem 0.5rem;
+          border: 0.1rem solid var(--color-primary-80);
+          border-radius: 0.5rem;
+          background: var(--color-primary-20);
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: var(--color-primary-30);
+            border-color: var(--color-primary-60);
+          }
+        }
+
+        .wrapper {
+          @include mixins.displayFlex($jc: flex-start, $ga: 0.4rem, $fwr: wrap);
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Carousel animations
+@keyframes carouselFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(20px);
+  }
+}
+
+@keyframes carouselFadeOut {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(20px);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes carouselSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes carouselSlideOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 0 1rem;
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+      grid-gap: 1.5rem;
+    }
+
+    .project-carousel {
+      .carousel-content {
+        max-width: 95vw;
+        max-height: 85vh;
+      }
+
+      .project-carousel-close-btn {
+        top: -50px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+
+        .material-symbols-rounded {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .projects-container {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }

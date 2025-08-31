@@ -1,64 +1,79 @@
 .carousel-wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
+  width: 80%;
+  max-width: 1000px;
+  aspect-ratio: 16/9;
+  border-radius: 1rem;
   overflow: hidden;
-  background: #000;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
   .carousel-container {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    border-radius: 1rem;
   }
 
   .carousel-track {
     display: flex;
     height: 100%;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
   }
 
   .carousel-slide {
+    width: 100%;
     height: 100%;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .carousel-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
+    transition: transform 0.3s ease;
+    border-radius: 1rem;
   }
 
   .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 40px;
-    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    opacity: 0;
+    opacity: 0.7;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
-    .material-icons {
-      font-size: 20px;
-      color: #333;
+    .material-symbols-rounded {
+      font-size: 24px;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 1);
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
 
     &:active {
@@ -72,15 +87,56 @@
     &--next {
       right: 20px;
     }
+
+    // Hide buttons on mobile/touch devices
+    @media (hover: none) {
+      opacity: 0.9;
+
+      &:hover {
+        transform: translateY(-50%) scale(1);
+      }
+    }
   }
 
-  // Show buttons only on hover
-  &:hover .carousel-button {
-    opacity: 1;
+  // Show buttons on hover for desktop
+  @media (hover: hover) {
+    .carousel-button {
+      opacity: 0;
+      transform: translateY(-50%) scale(0.9);
+    }
+
+    &:hover .carousel-button {
+      opacity: 0.7;
+      transform: translateY(-50%) scale(1);
+    }
+
+    .carousel-button:hover {
+      opacity: 1 !important;
+      transform: translateY(-50%) scale(1.05) !important;
+    }
   }
 
-  // Hide buttons for single images
   &.single-image .carousel-button {
+    display: none;
+  }
+
+  // Image counter/indicator
+  &::after {
+    content: attr(data-current) " / " attr(data-total);
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  &.single-image::after {
     display: none;
   }
 }
@@ -88,11 +144,118 @@
 .carousel-placeholder {
   width: 100%;
   height: 100%;
-  background: #333;
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Loading state for images
+.carousel-image {
+  &.loading {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    width: 95%;
+    aspect-ratio: 4/3;
+
+    .carousel-button {
+      width: 40px;
+      height: 40px;
+
+      &--prev {
+        left: 10px;
+      }
+
+      &--next {
+        right: 10px;
+      }
+
+      .material-symbols-rounded {
+        font-size: 20px;
+      }
+    }
+
+    &::after {
+      bottom: 15px;
+      right: 15px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-wrapper {
+    width: 98%;
+
+    .carousel-button {
+      width: 36px;
+      height: 36px;
+
+      .material-symbols-rounded {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+// Dot indicators styling
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 15;
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.7);
+      transform: scale(1.2);
+    }
+
+    &.active {
+      background: white;
+      transform: scale(1.3);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  @media (max-width: 768px) {
+    bottom: 15px;
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+    }
+  }
 }
