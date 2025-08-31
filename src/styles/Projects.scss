@@ -20,67 +20,51 @@
     width: 100%;
     height: 100%;
     background: var(--color-black-70);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(1px);
     z-index: 1000;
     cursor: pointer;
 
-    // Opening animation
-    &.opening {
-      animation: carouselFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    .project-carousel-content {
+      @include mixins.displayFlex($fd: column, $ai: center, $ga: 1rem);
+      width: fit-content;
 
-      .carousel-content {
-        animation: carouselSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-    }
-
-    // Closing animation
-    &.closing {
-      animation: carouselFadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-
-      .carousel-content {
-        animation: carouselSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-    }
-
-    .carousel-content {
-      @include mixins.displayFlex($fd: column, $ai: center, $ga: 2rem);
-      position: relative;
-      max-width: 90vw;
-      max-height: 90vh;
-      cursor: default;
-    }
-
-    .project-carousel-close-btn {
-      position: absolute;
-      top: -60px;
-      right: 0;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 0.8rem;
-      color: var(--color-white);
-      font-size: 1.2rem;
-      outline: none;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      font-family: "Outfit", sans-serif;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      @include mixins.displayFlex($jc: center, $ai: center);
-      width: 48px;
-      height: 48px;
-
-      .material-symbols-rounded {
-        font-size: 24px;
+      .project-carousel-title {
+        font-size: 2rem;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        animation: fadeIn 1s ease-in-out forwards;
       }
 
-      &:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.4);
-        transform: scale(1.1);
-      }
+      .project-carousel-btns-group {
+        @include mixins.displayFlex($jc: flex-end, $ga: 0.5rem);
+        width: 100%;
 
-      &:active {
-        transform: scale(0.95);
+        .project-carousel-btn {
+          @include mixins.displayFlex($jc: center, $ai: center);
+          padding: 0.8rem;
+          outline: none;
+          border-radius: 50%;
+          border: 0.1rem solid rgba(255, 255, 255, 0.2);
+          color: var(--color-white);
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          cursor: pointer;
+          animation: fadeIn 1s ease-in-out forwards;
+
+          span {
+            font-size: 1.2rem;
+          }
+
+          &:not(:disabled):hover,
+          &:not(:disabled):active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+          }
+
+          &:disabled {
+            color: rgba(255, 255, 255, 0.1);
+            cursor: not-allowed;
+          }
+        }
       }
     }
   }
@@ -98,15 +82,8 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        border-color: var(--color-primary-60);
-      }
-
-      .carousel-wrapper {
-        flex: 1;
-        border-top-left-radius: 0.5rem;
-        border-top-right-radius: 0.5rem;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 30px var(--color-primary-30);
       }
 
       p {
@@ -189,85 +166,49 @@
   }
 }
 
-// Carousel animations
-@keyframes carouselFadeIn {
-  from {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-  }
-  to {
-    opacity: 1;
-    backdrop-filter: blur(20px);
-  }
-}
-
-@keyframes carouselFadeOut {
-  from {
-    opacity: 1;
-    backdrop-filter: blur(20px);
-  }
-  to {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-  }
-}
-
-@keyframes carouselSlideIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8) translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes carouselSlideOut {
-  from {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.9) translateY(-20px);
-  }
-}
-
 // Responsive design
-@media (max-width: 768px) {
-  .projects-container {
-    padding: 0 1rem;
+//@media (max-width: 768px) {
+//  .projects-container {
+//    padding: 0 1rem;
+//
+//    .projects-grid {
+//      grid-template-columns: 1fr;
+//      grid-gap: 1.5rem;
+//    }
+//
+//    .project-carousel {
+//      .carousel-content {
+//        max-width: 95vw;
+//        max-height: 85vh;
+//      }
+//
+//      .project-carousel-close-btn {
+//        top: -50px;
+//        right: 10px;
+//        width: 40px;
+//        height: 40px;
+//
+//        .material-symbols-rounded {
+//          font-size: 20px;
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//@media (max-width: 1024px) and (min-width: 769px) {
+//  .projects-container {
+//    .projects-grid {
+//      grid-template-columns: repeat(2, 1fr);
+//    }
+//  }
+//}
 
-    .projects-grid {
-      grid-template-columns: 1fr;
-      grid-gap: 1.5rem;
-    }
-
-    .project-carousel {
-      .carousel-content {
-        max-width: 95vw;
-        max-height: 85vh;
-      }
-
-      .project-carousel-close-btn {
-        top: -50px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
-
-        .material-symbols-rounded {
-          font-size: 20px;
-        }
-      }
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-  .projects-container {
-    .projects-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  to {
+    opacity: 1;
   }
 }

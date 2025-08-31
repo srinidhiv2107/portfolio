@@ -57,7 +57,7 @@ export const projectsData = [
     images: [nlqe1, nlqe2, nlqe3, nlqe4],
     name: "NLQE",
     description: `
-      A web tool that allows users to run SQL queries directly or 
+      Natural Language Query Executor (NLQE) is web tool that allows users to run SQL queries directly or 
       by using natural language. It supports converting NLQ 
       (natural language queries) to SQL with Gemini AI, 
       database visualization, and query explanation, analysis and enhancement. 
@@ -82,35 +82,6 @@ export const projectsData = [
     techUsed: ["MongoDB", "Express", "React", "Node.js"],
     linkName: "View code",
     link: "https://github.com/srinidhiv2107/wordle"
-  },
-  {
-    images: [trainease1, trainease2, trainease3, trainease4],
-    name: "TrainEase",
-    description: `
-      A train booking system designed to make travel planning easier. 
-      Built with a strong database backend, it provides features for 
-      searching trains, booking tickets, and managing travel details. 
-      The platform focuses on being user-friendly while offering 
-      reliable performance for railway travel requirements.
-    `,
-    techUsed: ["React", "Express", "MySQL"],
-    linkName: "View code",
-    link: "https://github.com/srinidhiv2107/trainBookingSystem"
-  },
-  {
-    images: [userapp1, userapp2, userapp3, userapp4],
-    name: "UserTrack",
-    description: `
-    UserTrack is a user management application built to demonstrate 
-    CRUD operations using a Spring Boot backend connected to a MySQL database. 
-    It supports adding, updating, deleting, and searching users, 
-    with database migrations for managing schema changes effectively. 
-    The frontend is developed in React and styled with SCSS, 
-    offering a clean and responsive interface.
-  `,
-    techUsed: ["React", "Spring Boot", "MySQL", "SCSS"],
-    linkName: "View code",
-    link: "https://github.com/srinidhiv2107/UserManagementApp"
   },
   {
     images: [loadster1, loadster2, loadster3, loadster4],
@@ -156,5 +127,34 @@ export const projectsData = [
     techUsed: ["React", "Tailwind CSS", "EmailJS"],
     linkName: "View live",
     link: "https://wertetek.com/"
+  },
+  {
+    images: [trainease1, trainease2, trainease3, trainease4],
+    name: "TrainEase",
+    description: `
+      A train booking system designed to make travel planning easier. 
+      Built with a strong database backend, it provides features for 
+      searching trains, booking tickets, and managing travel details. 
+      The platform focuses on being user-friendly while offering 
+      reliable performance for railway travel requirements.
+    `,
+    techUsed: ["React", "Express", "MySQL"],
+    linkName: "View code",
+    link: "https://github.com/srinidhiv2107/trainBookingSystem"
+  },
+  {
+    images: [userapp1, userapp2, userapp3, userapp4],
+    name: "UserTrack",
+    description: `
+    UserTrack is a user management application built to demonstrate 
+    CRUD operations using a Spring Boot backend connected to a MySQL database. 
+    It supports adding, updating, deleting, and searching users, 
+    with database migrations for managing schema changes effectively. 
+    The frontend is developed in React and styled with SCSS, 
+    offering a clean and responsive interface.
+  `,
+    techUsed: ["React", "Spring Boot", "MySQL", "SCSS"],
+    linkName: "View code",
+    link: "https://github.com/srinidhiv2107/UserManagementApp"
   },
 ];

@@ -9,7 +9,7 @@ export const useActiveSectionContext = () => useContext(ActiveSectionContext);
 export const sections = ["home", "experience", "projects", "resume"];
 
 const ActiveSectionContextProvider = ({ children }) => {
-  const [activeSection, setActiveSection] = useState(sections[0]);
+  const [activeSection, setActiveSection] = useState(sections[2]);
 
   const contextValues = useMemo(() => ({
     activeSection,
