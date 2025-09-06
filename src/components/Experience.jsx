@@ -107,8 +107,8 @@ const Experience = () => {
 
   return (
     <div id={"test"} className="experience-container">
-      {renderTimeline("Education", "book", educationData)}
       {renderTimeline("Work", "work", workData)}
+      {renderTimeline("Education", "book", educationData)}
     </div>
   );
 };

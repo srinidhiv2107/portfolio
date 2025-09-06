@@ -11,13 +11,13 @@ const App = () => {
 
   return (
     <ActiveSectionContextProvider>
-      <div className="app">
-        <SpaceBackground />
-        {/*<TrailingStars isEnabled={isStarTrailEnabled} />*/}
-        <Header />
-        <MainContent />
-        <Footer />
-      </div>
+        <div className="app">
+          <SpaceBackground />
+          {/*<TrailingStars isEnabled={isStarTrailEnabled} />*/}
+          <Header />
+          <MainContent />
+          <Footer />
+        </div>
     </ActiveSectionContextProvider>
   );
 };

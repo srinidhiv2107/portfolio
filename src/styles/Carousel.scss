@@ -1,23 +1,22 @@
-.carousel-wrapper {
+@use "mixins";
+
+.par {
   position: relative;
+  width: 100%;
+  @include mixins.displayFlex;
+}
+
+.carousel-wrapper {
+  //outline: 1px solid lime;
   width: 80%;
   max-width: 1000px;
   aspect-ratio: 16/9;
   border-radius: 1rem;
-  overflow: hidden;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 0.1rem solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  animation: carouselFadeIn 0.5s ease-in-out forwards;
-
-  .carousel-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 1rem;
-  }
+  overflow: hidden;
+  animation: carouselFadeIn 0.7s ease-in-out forwards;
 
   .carousel-track {
     display: flex;
@@ -29,10 +28,7 @@
   .carousel-slide {
     width: 100%;
     height: 100%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include mixins.displayFlex;
   }
 
   .carousel-image {
@@ -40,7 +36,6 @@
     height: 100%;
     object-fit: contain;
     display: block;
-    transition: transform 0.3s ease;
     border-radius: 1rem;
   }
 
@@ -48,11 +43,16 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 48px;
-    height: 48px;
+    outline: none;
+    //background: rgba(255, 255, 255, 1);
+    background: var(--color-black-60);
+    //background: red;
+    border: none;
+    //backdrop-filter: blur(10px);
+    //border: 0.1rem solid var(--color-primary-60);
+    //width: 48px;
+    //height: 48px;
+    padding: 0.5rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -60,33 +60,41 @@
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10;
-    opacity: 0.7;
+    //opacity: 0.7;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
-    .material-symbols-rounded {
-      font-size: 24px;
-      color: white;
+    > span {
+      font-size: 1.5rem;
+      color: var(--color-white);
+      opacity: 0.8;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease-in-out;
     }
 
     &:hover {
       opacity: 1;
-      background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateY(-50%) scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      background: var(--color-black-80);
+      //border-color: var(--color-primary-60);
+      //border: 0.1rem solid rgba(255, 255, 255, 0.4);
+      transform: translateY(-50%);
+      //transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+      > span {
+        opacity: 1;
+      }
     }
 
-    &:active {
-      transform: translateY(-50%) scale(0.95);
-    }
+    //&:active {
+    //  transform: translateY(-50%) scale(0.95);
+    //}
 
     &--prev {
-      left: 20px;
+      left: 0.5rem;
     }
 
     &--next {
-      right: 20px;
+      right: 0.5rem;
     }
 
     // Hide buttons on mobile/touch devices
@@ -100,22 +108,22 @@
   }
 
   // Show buttons on hover for desktop
-  @media (hover: hover) {
-    .carousel-button {
-      opacity: 0;
-      transform: translateY(-50%) scale(0.9);
-    }
-
-    &:hover .carousel-button {
-      opacity: 0.7;
-      transform: translateY(-50%) scale(1);
-    }
-
-    .carousel-button:hover {
-      opacity: 1 !important;
-      transform: translateY(-50%) scale(1.05) !important;
-    }
-  }
+  //@media (hover: hover) {
+  //  .carousel-button {
+  //    opacity: 0;
+  //    transform: translateY(-50%) scale(0.9);
+  //  }
+  //
+  //  &:hover .carousel-button {
+  //    opacity: 0.7;
+  //    transform: translateY(-50%) scale(1);
+  //  }
+  //
+  //  .carousel-button:hover {
+  //    opacity: 1 !important;
+  //    transform: translateY(-50%) scale(1.05) !important;
+  //  }
+  //}
 
   &.single-image .carousel-button {
     display: none;

@@ -84,12 +84,7 @@ const Projects = () => {
   return (
     <div className="projects-container">
       {showCarousel && (
-        <div
-          className={`project-carousel`}
-          onClick={(e) => {
-            if(e.target === e.currentTarget) closeCarousel();
-          }}
-        >
+        <div className="project-carousel">
           <div className="project-carousel-content">
             <p className="project-carousel-title">{carouselTitle}</p>
             <Carousel images={carouselImagesList} />

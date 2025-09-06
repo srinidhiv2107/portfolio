@@ -5,6 +5,7 @@ import nlqe1 from "../assets/project-images/nlqe-1.png";
 import nlqe2 from "../assets/project-images/nlqe-2.png";
 import nlqe3 from "../assets/project-images/nlqe-3.png";
 import nlqe4 from "../assets/project-images/nlqe-4.png";
+import nlqe5 from "../assets/project-images/nlqe-5.png";
 
 import wordle1 from "../assets/project-images/wordle-1.png";
 import wordle2 from "../assets/project-images/wordle-2.png";
@@ -54,7 +55,7 @@ export const projectsData = [
     link: "https://github.com/NiranjanBhat123/major_project"
   },
   {
-    images: [nlqe1, nlqe2, nlqe3, nlqe4],
+    images: [nlqe1, nlqe2, nlqe3, nlqe4, nlqe5],
     name: "NLQE",
     description: `
       Natural Language Query Executor (NLQE) is web tool that allows users to run SQL queries directly or 

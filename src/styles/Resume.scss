@@ -1,0 +1,23 @@
+@use "mixins";
+
+.resume-container {
+  @include mixins.displayFlex($fd: column, $ga: 1rem);
+  width: 70%;
+  height: 100%;
+  padding: 0 2rem;
+
+  .show-pdf-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--color-primary-30);
+    font-family: "Outfit", sans-serif;
+    color: var(--color-white);
+    background: var(--color-primary-10);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: var(--color-primary-20);
+    }
+  }
+}
