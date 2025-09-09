@@ -1,5 +1,5 @@
 import React from 'react';
-import { useActiveSectionContext } from "../contexts/ActiveSectionContextProvider.jsx";
+import { useApplicationContext } from "../contexts/ContextProvider.jsx";
 import Home from "../components/Home.jsx";
 import Experience from "./Experience.jsx";
 import Projects from "./Projects.jsx";
@@ -7,7 +7,7 @@ import Resume from "./Resume.jsx";
 import "../styles/MainContent.scss";
 
 const MainContent = () => {
-  const { activeSection } = useActiveSectionContext();
+  const { activeSection } = useApplicationContext();
 
   const renderSection = () => {
     switch(activeSection) {

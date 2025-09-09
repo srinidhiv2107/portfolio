@@ -1,9 +1,9 @@
 import React from 'react';
-import { useActiveSectionContext, sections } from "../contexts/ActiveSectionContextProvider.jsx";
+import { useApplicationContext, sections } from "../contexts/ContextProvider.jsx";
 import "../styles/NavBar.scss";
 
 const NavBar = () => {
-  const { activeSection, setActiveSection } = useActiveSectionContext();
+  const { activeSection, setActiveSection } = useApplicationContext();
 
   return (
     <div className="nav">

@@ -80,7 +80,7 @@ export const projectsData = [
       results are stored in MongoDB, allowing users to track 
       their performance over time.
     `,
-    techUsed: ["MongoDB", "Express", "React", "Node.js"],
+    techUsed: ["React", "Express", "Node.js", "MongoDB"],
     linkName: "View code",
     link: "https://github.com/srinidhiv2107/wordle"
   },

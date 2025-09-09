@@ -11,9 +11,12 @@
   }
 
   .about-content {
-    @include mixins.displayFlex($fd: column, $ga: 0.7rem);
+    @include mixins.displayFlex($fd: column);
 
     p {
+      margin-block: 0.15rem;
+      width: 100%;
+      text-align: left;
       font-size: 1.1rem;
       font-weight: var(--font-regular);
       line-height: 150%;
@@ -31,6 +34,18 @@
           text-decoration: underline;
         }
       }
+    }
+
+    .username-field {
+      field-sizing: content;
+      padding: 0 0.3rem;
+      outline: none;
+      border: none;
+      border-radius: 0.2rem;
+      background: var(--color-primary-40);
+      color: var(--color-white);
+      font-family: var(--ff), sans-serif;
+      font-size: 1.1rem;
     }
   }
 }

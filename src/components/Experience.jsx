@@ -1,5 +1,5 @@
 import React from 'react';
-import { useActiveSectionContext } from "../contexts/ActiveSectionContextProvider.jsx";
+import { useApplicationContext } from "../contexts/ContextProvider.jsx";
 import "../styles/Experience.scss";
 
 const educationData = [
@@ -47,7 +47,7 @@ const workData = [
 ];
 
 const Experience = () => {
-  const { setActiveSection } = useActiveSectionContext();
+  const { setActiveSection } = useApplicationContext();
 
   const handleAllSkillsButtonClick = () => {
     setActiveSection("home");

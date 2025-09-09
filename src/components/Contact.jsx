@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import {useApplicationContext} from "../contexts/ContextProvider.jsx";
 import "../styles/Contact.scss";
 
 const Contact = () => {
+  const { username } = useApplicationContext();
   const [contactToggle, setContactToggle] = useState(false);
 
   const handleContactToggle = () => {
@@ -26,8 +28,8 @@ const Contact = () => {
         <div className="contact-form-content">
           <p className="p1">Let's get in touch</p>
           <form>
-            <input name="name" type="text" placeholder="Name" required />
-            <input name="email" type="email" placeholder="Email" required />
+            <input name="name" type="text" placeholder="Name" defaultValue={username} autoComplete="name" required />
+            <input name="email" type="email" placeholder="Email" autoComplete="email" required />
             <textarea name="message" placeholder="Message" rows="4" cols="4" required />
             <button type="submit">
               Send

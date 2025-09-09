@@ -1,5 +1,5 @@
 import React from 'react';
-import ActiveSectionContextProvider from "./contexts/ActiveSectionContextProvider.jsx";
+import ContextProvider from "./contexts/ContextProvider.jsx";
 import Header from "./components/Header.jsx";
 import SpaceBackground from "./components/SpaceBackground.jsx";
 // import TrailingStars from "./components/TrailingStars.jsx";
@@ -10,15 +10,15 @@ const App = () => {
   // const [isStarTrailEnabled, setIsStarTrailEnabled] = useState(false);
 
   return (
-    <ActiveSectionContextProvider>
-        <div className="app">
-          <SpaceBackground />
-          {/*<TrailingStars isEnabled={isStarTrailEnabled} />*/}
-          <Header />
-          <MainContent />
-          <Footer />
-        </div>
-    </ActiveSectionContextProvider>
+    <ContextProvider>
+      <div className="app">
+        <SpaceBackground />
+        {/*<TrailingStars isEnabled={isStarTrailEnabled} />*/}
+        <Header />
+        <MainContent />
+        <Footer />
+      </div>
+    </ContextProvider>
   );
 };
 

@@ -1,12 +1,93 @@
+@use "mixins";
+
+.photo-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-black);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
 .space-photo-holder {
   position: relative;
   transform-style: preserve-3d;
-  //animation: gentleFloat 10s ease-in-out infinite;
   display: inline-block;
+
+  .speech-bubble {
+    position: absolute;
+    left: 115%;
+    top: 20%;
+    @include mixins.displayFlex($fd: column, $ai: flex-end, $ga: 0.5rem);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    background: var(--color-primary-30);
+    animation: floatIn 1s ease-in-out forwards;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 12%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 0.7rem;
+      aspect-ratio: 1;
+      border: 0.1rem solid var(--color-primary);
+      background: inherit;
+      clip-path: polygon(0 0, 0 100%, 100% 100%, 0 0);
+    }
+    &::after {
+      left: -0.45rem;
+    }
+  }
+
+  .speech-text {
+    text-wrap: nowrap;
+    font-size: 0.9rem;
+    color: var(--color-white);
+  }
+
+  .speech-input {
+    width: 100%;
+    margin-top: 0.3rem;
+    padding: 0.5rem;
+    outline: none;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--color-primary);
+    background: transparent;
+    color: var(--color-white);
+    font-family: var(--ff), sans-serif;
+    font-size: 1rem;
+  }
+
+  .speech-actions {
+    width: 100%;
+    @include mixins.displayFlex($jc: flex-end, $ga: 0.5rem);
+
+    button {
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      background: var(--color-primary);
+      color: var(--color-white);
+      font-family: var(--ff), sans-serif;
+
+      font-size: 0.8rem;
+      transition: background 0.2s ease-in-out;
+
+      &:hover {
+        background: var(--color-primary-90);
+      }
+    }
+  }
 }
 
 .photo-frame {
   position: relative;
+  @include mixins.displayFlex;
   width: min(220px, 30vw);
   height: min(220px, 30vw);
   border-radius: min(20px, 5vw);
@@ -15,9 +96,6 @@
           0 10px 30px rgba(0, 0, 0, 0.5),
           inset 0 2px 8px rgba(255, 255, 255, 0.4),
           0 0 20px rgba(0, 150, 255, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
 
@@ -99,11 +177,16 @@
   box-shadow: 0 0 min(10px, 2.5vw) rgba(0, 255, 150, 0.6);
 }
 
-//@keyframes gentleFloat {
-//  0%, 100% { transform: translateY(0px); }
-//  33% { transform: translateY(min(-1px, -2vw)); }
-//  66% { transform: translateY(min(3px, 1vw)); }
-//}
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%)
+  }
+}
 
 @keyframes orbit1 {
   from { transform: rotateX(70deg) rotateZ(0deg); }
