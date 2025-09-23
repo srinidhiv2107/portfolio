@@ -21,7 +21,7 @@ const Contact = () => {
           className={`material-symbols-rounded arrow-icon ${contactToggle ? 'rotated' : ''}`}
           onClick={handleContactToggle}
         >
-            arrow_drop_up
+            arrow_drop_down
           </span>
       </div>
       <div className={`contact-form ${contactToggle ? 'open' : ''}`}>

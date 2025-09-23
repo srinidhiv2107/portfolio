@@ -64,7 +64,7 @@ const Quotes = () => {
           className={`material-symbols-rounded arrow-icon ${quotesToggle ? 'rotated' : ''}`}
           onClick={handleQuotesToggle}
         >
-            arrow_drop_up
+            arrow_drop_down
           </span>
       </div>
       <div className={`quotes-display ${quotesToggle ? 'open' : ''}`}>

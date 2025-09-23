@@ -2,31 +2,105 @@
 
 .nav {
   transform: skewX(var(--skew-angle));
-  @include mixins.displayFlex($jc: center, $fd: row, $ga: 1rem);
-  padding: 0.7rem 1.5rem;
+  @include mixins.displayFlex($fd: row, $ga: 0.5rem);
+  margin-left: auto;
+  padding: 0.5rem 1.2rem;
   border-left: 0.2rem solid var(--color-primary-70);
   border-bottom: 0.1rem solid var(--color-primary-70);
+  border-bottom-left-radius: 1.2rem;
   background: transparent;
   backdrop-filter: blur(var(--glass-blur));
-  border-bottom-left-radius: 1.2rem;
 
-  &-item {
+  &-item, &-menu-btn {
     @include mixins.displayFlex;
-    padding: 0 1.2rem;
     border: 0.1rem solid var(--color-primary-80);
     border-radius: 0.5rem;
     background: var(--color-primary-20);
     backdrop-filter: blur(var(--glass-blur));
-    transition: background 0.2s ease-in-out;
+    transition: background 0.3s ease-in-out;
     cursor: pointer;
+
+    &:hover {
+      background: var(--color-primary-30);
+    }
+  }
+
+  &-item {
+    padding: 0 1.2rem;
 
     > p {
       transform: skewX(var(--neg-skew-angle));
-      font-size: 1rem;
+      font-size: clamp(1rem, 0.875rem + 0.556vw, 1.5rem);
     }
 
     &.active {
       background: var(--color-primary-40);
     }
+  }
+
+  &-menu-btn {
+    display: none;
+    align-self: stretch;
+    padding: 0 0.4rem;
+
+    > span {
+      transform: skewX(var(--neg-skew-angle));
+      font-size: 1.5rem;
+      transition: transform 0.3s ease-in-out;
+
+      &.arrow-icon {
+        &.rotated {
+          transform: skewX(var(--neg-skew-angle)) rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &-menu-container {
+    position: absolute;
+    bottom: 0;
+    right: 0.5rem;
+    transform: translateY(100%);
+    display: grid;
+    grid-template-rows: 0fr;
+    border: 0.1rem solid var(--color-primary-70);
+    border-radius: 0.7rem;
+    background: var(--color-black);
+    opacity: 0;
+    z-index: 1000;
+    transition: all 0.4s ease-in-out;
+
+    &.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+
+      .nav-menu .nav-item {
+        opacity: 1;
+      }
+    }
+
+    .nav-menu {
+      @include mixins.displayFlex($fd: column, $ga: 0.4rem);
+      padding: 0.5rem 1rem;
+      overflow: hidden;
+
+      .nav-item {
+        width: 100%;
+        padding: 0 0.5rem;
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
+
+        > p {
+          transform: skewX(0);
+          font-size: clamp(1rem, 0.875rem + 0.556vw, 1.5rem);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px){
+  .nav-menu-btn {
+    display: flex;
   }
 }

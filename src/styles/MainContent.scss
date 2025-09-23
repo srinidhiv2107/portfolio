@@ -10,6 +10,7 @@
   backdrop-filter: blur(1px);
   border-left: 0.1rem solid var(--color-primary-70);
   border-right: 0.1rem solid var(--color-primary-70);
+  z-index: -1;
 }
 
 .main-content {

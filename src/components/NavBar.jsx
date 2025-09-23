@@ -1,24 +1,75 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useApplicationContext, sections } from "../contexts/ContextProvider.jsx";
 import "../styles/NavBar.scss";
 
 const NavBar = () => {
   const { activeSection, setActiveSection } = useApplicationContext();
+  const [showOnlyActiveSection, setShowOnlyActiveSection] = useState(
+    window.matchMedia("(max-width: 1000px)").matches
+  );
+  const [menuToggle, setMenuToggle] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1000px)");
+    const handleMediaChange = () => setShowOnlyActiveSection(mediaQuery.matches);
+
+    mediaQuery.addEventListener("change", handleMediaChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaChange);
+    }
+  }, []);
+
+  const handleMenuToggle = () => {
+    setMenuToggle(!menuToggle);
+  }
 
   return (
-    <div className="nav">
-      {sections.map((item, index) => (
+    <>
+      <div className="nav">
+        {showOnlyActiveSection? (
+          <div className="nav-item active">
+            <p className="p2">
+              {activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}
+            </p>
+          </div>
+          ): (sections.map((item, index) => (
+            <div
+              key={index}
+              className={`nav-item ${activeSection === item ? 'active' : ''}`}
+              onClick={() => setActiveSection(item)}
+            >
+              <p className="p2">
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </p>
+            </div>
+          )))
+        }
         <div
-          key={index}
-          className={`nav-item ${activeSection === item ? 'active' : ''}`}
-          onClick={() => setActiveSection(item)}
+          className="nav-menu-btn"
+          onClick={handleMenuToggle}
         >
-        <p className="p2">
-          {item.charAt(0).toUpperCase() + item.slice(1)}
-        </p>
+          <span
+            className={`material-symbols-rounded arrow-icon ${menuToggle? 'rotated': ''}`}>
+            arrow_drop_down
+          </span>
         </div>
-      ))}
-    </div>
+      </div>
+      <div className={`nav-menu-container ${menuToggle? 'open': ''}`}>
+        <div className="nav-menu">
+          {sections.map((item, index) => (
+            <div
+              key={index}
+              className={`nav-item ${activeSection === item ? 'active' : ''}`}
+              onClick={() => setActiveSection(item)}
+            >
+              <p className="p2">
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
