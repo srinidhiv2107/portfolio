@@ -7,45 +7,84 @@
   gap: 1rem;
 
   > h4 {
+    font-size: clamp(1.1rem, 0.875rem + 1vw, 2rem);
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   }
 
   .about-content {
     @include mixins.displayFlex($fd: column);
 
-    p {
-      margin-block: 0.15rem;
-      width: 100%;
-      text-align: left;
-      font-size: 1.1rem;
-      font-weight: var(--font-regular);
-      line-height: 150%;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    &-body {
+      p {
+        margin-block: 0.15rem;
+        width: 100%;
+        text-align: left;
+        font-size: clamp(0.8rem, 0.7rem + 0.444vw, 1.2rem);
+        font-weight: var(--font-regular);
+        line-height: 150%;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 
-      strong {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-        font-weight: var(--font-medium);
+        strong {
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+          font-weight: var(--font-medium);
+        }
+
+        .profile-link {
+          color: var(--color-white);
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
 
-      .profile-link {
+      .username-field {
+        field-sizing: content;
+        padding: 0 0.3rem;
+        outline: none;
+        border: none;
+        border-radius: 0.2rem;
+        background: var(--color-primary-40);
         color: var(--color-white);
+        font-family: var(--ff), sans-serif;
+        font-size: clamp(0.8rem, 0.7rem + 0.444vw, 1.2rem);
+      }
 
-        &:hover {
-          text-decoration: underline;
+      @media screen and (max-width: 800px) {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 7;
+        overflow: hidden;
+
+        &.expanded {
+          display: flex;
+          flex-direction: column;
         }
       }
     }
 
-    .username-field {
-      field-sizing: content;
-      padding: 0 0.3rem;
-      outline: none;
+    .read-more-btn {
+      display: none;
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      background: none;
       border: none;
-      border-radius: 0.2rem;
-      background: var(--color-primary-40);
       color: var(--color-white);
       font-family: var(--ff), sans-serif;
-      font-size: 1.1rem;
+      font-size: clamp(0.8rem, 0.7rem + 0.444vw, 1.2rem);
+      font-weight: var(--font-medium);
+      cursor: pointer;
+      opacity: 0.75;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      @media (max-width: 800px) {
+        display: flex;
+      }
     }
   }
 }

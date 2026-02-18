@@ -28,32 +28,32 @@ import postman from "../assets/icons/Postman.svg";
 import '../styles/Skills.scss';
 
 const skills = [
-  { name: "C", icon: c },
-  { name: "Python", icon: python },
-  { name: "C++", icon: cpp },
-  { name: "JavaScript", icon: js },
-  { name: "Java", icon: java },
-  { name: "Kotlin", icon: kotlin },
-  { name: "HTML", icon: html },
-  { name: "CSS", icon: css },
-  { name: "SCSS", icon: sass },
-  { name: "MUI", icon: MUI },
-  { name: "Tailwind", icon: tailwind },
-  { name: "NodeJS", icon: nodejs },
-  { name: "React", icon: react },
-  { name: "Express", icon: express },
-  { name: "Vite", icon: vite },
-  { name: "Spring Boot", icon: spring },
-  { name: "Jest", icon: jest },
-  { name: "Cypress", icon: cypress },
-  { name: "JUnit", icon: junit },
-  { name: "MySQL", icon: mysql },
-  { name: "Postgres", icon: postgres },
-  { name: "MongoDB", icon: mongodb },
-  { name: "GitHub", icon: github },
-  { name: "WebStorm", icon: webstorm },
-  { name: "VS Code", icon: vscode },
-  { name: "Postman", icon: postman },
+  { name: "c", icon: c },
+  { name: "python", icon: python },
+  { name: "c++", icon: cpp },
+  { name: "javascript", icon: js },
+  { name: "java", icon: java },
+  { name: "kotlin", icon: kotlin },
+  { name: "html", icon: html },
+  { name: "css", icon: css },
+  { name: "scss", icon: sass },
+  { name: "mui", icon: MUI },
+  { name: "tailwind", icon: tailwind },
+  { name: "nodejs", icon: nodejs },
+  { name: "react", icon: react },
+  { name: "express", icon: express },
+  { name: "vite", icon: vite },
+  { name: "spring boot", icon: spring },
+  { name: "jest", icon: jest },
+  { name: "cypress", icon: cypress },
+  { name: "junit", icon: junit },
+  { name: "mysql", icon: mysql },
+  { name: "postgres", icon: postgres },
+  { name: "mongodb", icon: mongodb },
+  { name: "github", icon: github },
+  { name: "webstorm", icon: webstorm },
+  { name: "vs code", icon: vscode },
+  { name: "postman", icon: postman },
 ];
 
 const Skills = () => {
@@ -69,7 +69,7 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <div key={index} className="skills-view__item">
             <img className="skills-view__icon" src={skill.icon} alt={skill.name}/>
-            <span className="skills-view__name l1">{skill.name}</span>
+            <span className="skills-view__name">{skill.name}</span>
           </div>
         ))}
       </div>
@@ -79,13 +79,13 @@ const Skills = () => {
   return (
     <div className="skills-container">
       <div className="skills-header">
-        <h4 className="h4">Skills</h4>
+        <h4 className="h4">skills</h4>
 
         <button
           className="skills-header__toggle b2"
           onClick={toggleView}
         >
-          {isCompactView ? 'Animated View' : 'Compact View'}
+          {isCompactView ? 'animate' : 'compact'}
         </button>
       </div>
 

@@ -50,6 +50,6 @@ a {
 .app {
   position: relative;
   @include mixins.displayFlex($jc: center, $fd: column);
-  height: 100vh;
+  height: 100dvh; // this fixes the mobile layout problem - footer not visible
   z-index: 1;
 }
