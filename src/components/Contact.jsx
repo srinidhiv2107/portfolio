@@ -11,7 +11,10 @@ const Contact = () => {
   }
 
   return (
-    <div className="contact">
+    <div 
+      className="contact"
+      data-form-open={`${contactToggle}`}
+    >
       <div
         className="contact-label"
         data-form-open={`${contactToggle}`}
@@ -26,7 +29,7 @@ const Contact = () => {
       </div>
       <div className={`contact-form ${contactToggle ? 'open' : ''}`}>
         <div className="contact-form-content">
-          <p className="p1">Let's get in touch</p>
+          <p className="p1">let's get in touch</p>
           <form>
             <input name="name" type="text" placeholder="Name" defaultValue={username} autoComplete="name" required />
             <input name="email" type="email" placeholder="Email" autoComplete="email" required />

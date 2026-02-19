@@ -6,6 +6,12 @@
   bottom: 0;
   @include mixins.displayFlex($ai: flex-end, $fd: column);
 
+  @media screen and (max-width: 600px) {
+    &[data-form-open="true"] {
+      z-index: 1000;
+    }
+  }
+
   &-label {
     transform: skewX(var(--neg-skew-angle));
     @include mixins.displayFlex($jc: center, $ga: 0.5rem);
@@ -20,17 +26,18 @@
       background: var(--color-black);
     }
 
-    p, span {
+    p,
+    span {
       transform: skewX(var(--skew-angle));
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
     }
 
     p {
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 0.649rem + 0.401vw, 1.1rem);
     }
 
     span {
-      font-size: 1.2rem;
+      font-size: clamp(1.2rem, 1.15rem + 0.222vw, 1.4rem);
       cursor: pointer;
       background: var(--color-primary-20);
       border: 0.1rem solid var(--color-primary-70);
@@ -49,7 +56,9 @@
   &-form {
     display: grid;
     grid-template-rows: 0fr;
-    width: 30vw;
+    width: clamp(20rem, 16rem + 17.778vw, 36rem);
+    max-width: 90vw;
+    max-height: 80dvh;
     border-top-left-radius: 1.2rem;
     border-top: 0.1rem solid var(--color-primary-70);
     border-left: 0.1rem solid var(--color-primary-70);
@@ -65,14 +74,15 @@
     }
 
     &-content {
-      @include mixins.displayFlex($jc: center, $ga: 1rem, $fd: column);
+      @include mixins.displayFlex($jc: flex-start, $ga: 1rem, $fd: column);
       width: 100%;
       min-height: 0;
-      overflow: hidden;
+      overflow-y: scroll;
       transition: all 0.4s ease-in-out;
 
       p {
         opacity: 1;
+        font-size: clamp(1.1rem, 0.95rem + 0.667vw, 1.7rem);
         font-weight: var(--font-medium);
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         transition: all 0.2s ease-in-out;
@@ -82,11 +92,12 @@
         @include mixins.displayFlex($ai: stretch, $ga: 1rem, $fd: column);
         width: 100%;
 
-        input, textarea {
+        input,
+        textarea {
           padding: 0.5rem;
           color: var(--color-white);
           font-family: inherit;
-          font-size: 1rem;
+          font-size: clamp(0.8rem, 0.7rem + 0.444vw, 1.2rem);
           border: 0.1rem solid var(--color-primary-70);
           border-radius: 0.4rem;
           background: transparent;
@@ -109,11 +120,11 @@
         }
 
         button {
-          @include mixins.displayFlex($jc: center, $ga: 0.5rem);
+          @include mixins.displayFlex($jc: center, $ga: 0.2rem);
           padding: 0.5rem;
           color: var(--color-white);
           font-family: inherit;
-          font-size: 1rem;
+          font-size: clamp(0.9rem, 0.825rem + 0.333vw, 1.2rem);
           border: 0.1rem solid var(--color-primary-70);
           border-radius: 0.4rem;
           background: var(--color-primary-20);
@@ -122,7 +133,7 @@
           transition: all 0.3s ease;
 
           span {
-            font-size: 1.2rem;
+            font-size: clamp(1.1rem, 1.025rem + 0.333vw, 1.4rem);
             transition: transform 0.3s ease-in-out;
           }
 

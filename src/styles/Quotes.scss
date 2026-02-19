@@ -3,7 +3,8 @@
 .quotes {
   @include mixins.displayFlex($ai: flex-start, $fd: column);
 
-  &-label, &-display {
+  &-label,
+  &-display {
     transform: skewX(var(--skew-angle));
     background: transparent;
     backdrop-filter: blur(var(--glass-blur));
@@ -16,17 +17,18 @@
     @include mixins.displayFlex($ga: 0.5rem);
     padding: 0.4rem 1.5rem 0.4rem 1rem;
 
-    p, span {
+    p,
+    span {
       transform: skewX(var(--neg-skew-angle));
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
     }
 
     p {
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 0.649rem + 0.401vw, 1.1rem);
     }
 
     span {
-      font-size: 1.2rem;
+      font-size: clamp(1.2rem, 1.15rem + 0.222vw, 1.4rem);
       border: 0.1rem solid var(--color-primary-70);
       border-radius: 0.5rem;
       background: var(--color-primary-20);
@@ -45,9 +47,18 @@
   &-display {
     display: grid;
     grid-template-rows: 0fr;
-    width: 45vw;
+    width: clamp(22rem, 15.5rem + 28.889vw, 48rem);
+    max-width: 90vw;
+    max-height: 80dvh;
     opacity: 0;
     transition: all 0.5s ease-in-out;
+
+    @media screen and (max-width: 600px) {
+      &[data-quotes-open="true"] {
+        z-index: 1000;
+        background: var(--color-black);
+      }
+    }
 
     &.open {
       grid-template-rows: 1fr;
@@ -73,7 +84,7 @@
       &-text {
         transform: skewX(var(--neg-skew-angle));
         padding-right: 0.2rem;
-        font-size: 1.1rem;
+        font-size: clamp(0.8rem, 0.7rem + 0.444vw, 1.2rem);
         line-height: 150%;
 
         span:first-child {
@@ -95,5 +106,7 @@
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }

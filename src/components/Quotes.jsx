@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { quotes } from "./QuotesList.jsx";
 import "../styles/Quotes.scss";
 
 const Quotes = () => {
   const [quotesToggle, setQuotesToggle] = useState(false);
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
 
   const handleQuotesToggle = () => {
     setQuotesToggle(!quotesToggle);
-  }
+  };
 
   useEffect(() => {
-    if(!quotesToggle) return;
+    if (!quotesToggle) return;
 
     const currentQuote = quotes[currentQuoteIndex];
     let timeoutId;
 
-    if(isTyping) {
+    if (isTyping) {
       // Typing animation
       if (displayText.length < currentQuote.length) {
         timeoutId = setTimeout(() => {
@@ -51,7 +51,7 @@ const Quotes = () => {
   // Reset animation when a quotesList section is toggled
   useEffect(() => {
     if (quotesToggle) {
-      setDisplayText('');
+      setDisplayText("");
       setIsTyping(true);
     }
   }, [quotesToggle]);
@@ -59,19 +59,23 @@ const Quotes = () => {
   return (
     <div className="quotes">
       <div className="quotes-label">
-        <p className="p2">Quotes</p>
         <span
-          className={`material-symbols-rounded arrow-icon ${quotesToggle ? 'rotated' : ''}`}
+          className={`material-symbols-rounded arrow-icon ${quotesToggle ? "rotated" : ""}`}
           onClick={handleQuotesToggle}
         >
-            arrow_drop_down
-          </span>
+          arrow_drop_down
+        </span>
+        <p className="p2">Quotes</p>
       </div>
-      <div className={`quotes-display ${quotesToggle ? 'open' : ''}`}>
+      <div
+        className={`quotes-display ${quotesToggle ? "open" : ""}`}
+        data-quotes-open={`${quotesToggle}`}
+      >
         <div className="quotes-display-content">
           <div className="quotes-display-content-line"></div>
           <p className="quotes-display-content-text">
-            <span>{displayText}</span><span></span>
+            <span>{displayText}</span>
+            <span></span>
           </p>
         </div>
       </div>
