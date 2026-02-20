@@ -29,7 +29,7 @@ const NavBar = () => {
         {showOnlyActiveSection? (
           <div className="nav-item active">
             <p className="p2">
-              {activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}
+              {activeSection}
             </p>
           </div>
           ): (sections.map((item, index) => (
@@ -39,7 +39,7 @@ const NavBar = () => {
               onClick={() => setActiveSection(item)}
             >
               <p className="p2">
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {item}
               </p>
             </div>
           )))
@@ -63,7 +63,7 @@ const NavBar = () => {
               onClick={() => setActiveSection(item)}
             >
               <p className="p2">
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {item}
               </p>
             </div>
           ))}

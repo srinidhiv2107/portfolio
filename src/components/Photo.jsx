@@ -38,17 +38,17 @@ const Photo = ({ photoSrc, alt }) => {
       >
         {showBubble && (
           <div className="speech-bubble">
-            <p className="speech-text">Hey can you please type in your name?</p>
+            <p className="speech-text">hey can you please type in your name?</p>
             <input
               type="text"
-              placeholder="Enter your name"
+              placeholder="enter your name"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="speech-input"
             />
             <div className="speech-actions">
-              <button onClick={handleSpeechBubbleClose}>Skip</button>
-              <button onClick={handleSubmit}>Done</button>
+              <button onClick={handleSpeechBubbleClose}>skip</button>
+              <button onClick={handleSubmit}>done</button>
             </div>
           </div>
         )}

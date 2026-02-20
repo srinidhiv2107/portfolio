@@ -8,7 +8,7 @@ const Header = () => {
     <div className="header">
       <div className="header__content">
         <h1 className="h2">
-          Hello I'm <span>Srinidhi</span>. Welcome to my space!
+          hello i'm <span>srinidhi</span>. welcome to my space!
         </h1>
         {/*<button*/}
         {/*  className={`header__toggle ${isStarTrailEnabled ? 'active' : ''}`}*/}

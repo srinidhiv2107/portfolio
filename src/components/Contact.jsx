@@ -19,7 +19,7 @@ const Contact = () => {
         className="contact-label"
         data-form-open={`${contactToggle}`}
       >
-        <p className="p2">Contact</p>
+        <p className="p2">contact</p>
         <span
           className={`material-symbols-rounded arrow-icon ${contactToggle ? 'rotated' : ''}`}
           onClick={handleContactToggle}
@@ -35,7 +35,7 @@ const Contact = () => {
             <input name="email" type="email" placeholder="Email" autoComplete="email" required />
             <textarea name="message" placeholder="Message" rows="4" cols="4" required />
             <button type="submit">
-              Send
+              push
               <span className="material-symbols-rounded">send</span>
             </button>
           </form>

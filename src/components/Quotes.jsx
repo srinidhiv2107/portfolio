@@ -65,7 +65,7 @@ const Quotes = () => {
         >
           arrow_drop_down
         </span>
-        <p className="p2">Quotes</p>
+        <p className="p2">quotes</p>
       </div>
       <div
         className={`quotes-display ${quotesToggle ? "open" : ""}`}

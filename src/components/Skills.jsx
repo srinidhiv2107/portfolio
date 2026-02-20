@@ -82,7 +82,7 @@ const Skills = () => {
         <h4 className="h4">skills</h4>
 
         <button
-          className="skills-header__toggle b2"
+          className="skills-header__toggle"
           onClick={toggleView}
         >
           {isCompactView ? 'animate' : 'compact'}
