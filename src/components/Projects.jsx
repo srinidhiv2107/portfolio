@@ -51,11 +51,11 @@ const Projects = () => {
         <div className="project-data">
           <div className="wrapper" style={{justifyContent: "space-between"}}>
             <button
-              className="project-cta-gallery label l2"
+              className="project-cta-gallery label"
               onClick={() => onViewGallery(index)}
               disabled={!projectData.images || projectData.images.length === 0}
             >
-              View gallery
+              view gallery
             </button>
             <a
               href={projectData.link}
@@ -64,7 +64,7 @@ const Projects = () => {
               className="project-cta-link"
             >
               {projectData.linkName}
-              {projectData.linkName === "View code"?
+              {projectData.linkName === "view code"?
                 <span className="material-symbols-rounded">call_made</span>:
                 <span className="material-symbols-rounded">language</span>
               }
@@ -73,7 +73,7 @@ const Projects = () => {
           <p className="text">{projectData.description}</p>
           <div className="wrapper">
             {projectData.techUsed.map((tech, i) => (
-              <p key={i} className="l2 label">{tech}</p>
+              <p key={i} className="label">{tech}</p>
             ))}
           </div>
         </div>
@@ -114,7 +114,6 @@ const Projects = () => {
           </div>
         </div>
       )}
-      <h4 className="h4">Projects</h4>
       <div className="projects-grid">
         {projectsData.map((projectData, index) => (
           renderProject(projectData, index)

@@ -40,122 +40,122 @@ import wertetek4 from "../assets/project-images/wertetek-4.png";
 export const projectsData = [
   {
     images: [fixngo1, fixngo2],
-    name: "FixNGo",
+    name: "fixngo",
     description: `
-      FixNGo is a platform that connects customers with nearby service providers 
+      fixngo is a platform that connects customers with nearby service providers 
       for home needs like plumbing, electrical repairs, and hairstyling. 
-      It includes features such as face verification for service providers, 
+      it includes features such as face verification for service providers, 
       ratings and reviews, profile management, and booking services at a preferred time. 
-      With maps integration for client location and a built-in chat system 
-      (with image sharing using Redis), FixNGo makes finding and booking 
+      with maps integration for client location and a built-in chat system 
+      (with image sharing using redis), fixngo makes finding and booking 
       trusted local services simple and efficient.
     `,
-    techUsed: ["React", "MUI", "Django", "MySQL", "Redis"],
-    linkName: "View code",
-    link: "https://github.com/NiranjanBhat123/major_project"
+    techUsed: ["react", "mui", "django", "mysql", "redis"],
+    linkName: "view code",
+    link: "https://github.com/niranjanbhat123/major_project"
   },
   {
     images: [nlqe1, nlqe2, nlqe3, nlqe4, nlqe5],
-    name: "NLQE",
+    name: "nlqe",
     description: `
-      Natural Language Query Executor (NLQE) is web tool that allows users to run SQL queries directly or 
-      by using natural language. It supports converting NLQ 
-      (natural language queries) to SQL with Gemini AI, 
+      natural language query executor (nlqe) is web tool that allows users to run sql queries directly or 
+      by using natural language. it supports converting nlq 
+      (natural language queries) to sql with gemini ai, 
       database visualization, and query explanation, analysis and enhancement. 
-      Users can also view database tables and manage a history 
+      users can also view database tables and manage a history 
       of executed queries, making it easier to understand 
       and interact with data.
     `,
-    techUsed: ["React", "Express", "MySQL", "Gemini AI"],
-    linkName: "View code",
-    link: "https://github.com/srinidhiv2107/NaturalLanguageQueryExecutor"
+    techUsed: ["react", "express", "mysql", "gemini ai"],
+    linkName: "view code",
+    link: "https://github.com/srinidhiv2107/naturallanguagequeryexecutor"
   },
   {
     images: [wordle1, wordle2, wordle3, wordle4],
-    name: "Wordle Clone",
+    name: "wordle clone",
     description: `
-      A clone of the popular Wordle game built using the MERN stack. 
-      It includes a secure login system, a simple and interactive 
-      game interface, and player statistics. Game progress and 
-      results are stored in MongoDB, allowing users to track 
+      a clone of the popular wordle game built using the mern stack. 
+      it includes a secure login system, a simple and interactive 
+      game interface, and player statistics. game progress and 
+      results are stored in mongodb, allowing users to track 
       their performance over time.
     `,
-    techUsed: ["React", "Express", "Node.js", "MongoDB"],
-    linkName: "View code",
+    techUsed: ["react", "express", "node.js", "mongodb"],
+    linkName: "view code",
     link: "https://github.com/srinidhiv2107/wordle"
   },
   {
-    images: [loadster1, loadster2, loadster3, loadster4],
-    name: "Loadster",
-    description: `
-    Loadster is a zero-commission delivery platform built to connect 
-    businesses and individuals with drivers seamlessly. It empowers driver partners, 
-    called Champions, by ensuring they keep 100% of their earnings while 
-    offering transparent and reliable delivery solutions. More than a service, 
-    Loadster fosters a trusted community built on openness, fairness, and shared success.
-  `,
-    techUsed: ["React", "CSS", "Figma", "GCP", "GitHub Actions"],
-    linkName: "View live",
-    link: "https://loadster.in/"
-  },
-  {
     images: [studiodumin1, studiodumin2, studiodumin3, studiodumin4],
-    name: "Studiodumin",
+    name: "studiodumin",
     description: `
-    Studiodumin is an interior design agency website that showcases creative 
-    and functional design solutions for modern living spaces. It highlights 
-    the agency’s expertise in blending aesthetics with practicality, 
-    staying updated with trends, and delivering personalized experiences. 
-    Built with React and SCSS, the site provides a clean and engaging 
-    digital presence for the brand.
-  `,
-    techUsed: ["React", "SCSS", "Figma", "EmailJS"],
-    linkName: "View live",
+      studiodumin is an interior design agency website that showcases creative 
+      and functional design solutions for modern living spaces. it highlights 
+      the agency’s expertise in blending aesthetics with practicality, 
+      staying updated with trends, and delivering personalized experiences. 
+      built with react and scss, the site provides a clean and engaging 
+      digital presence for the brand.
+    `,
+    techUsed: ["react", "scss", "figma", "emailjs"],
+    linkName: "view live",
     link: "https://studiodumin.com/"
   },
   {
-    images: [wertetek1, wertetek2, wertetek3, wertetek4],
-    name: "Wertetek",
+    images: [loadster1, loadster2, loadster3, loadster4],
+    name: "loadster",
     description: `
-    Wertetek is a multi-domain solutions provider offering expertise in 
-    mechanical, electronics, software, construction, and design. 
-    The website highlights the company’s focus on innovation, 
-    quality, and client-centric services, covering everything from 
-    engineering solutions to web and app development. 
-    Built with React and Tailwind CSS, it delivers a modern 
-    and professional digital presence.
-  `,
-    techUsed: ["React", "Tailwind CSS", "EmailJS"],
-    linkName: "View live",
+      loadster is a zero-commission delivery platform built to connect 
+      businesses and individuals with drivers seamlessly. it empowers driver partners, 
+      called champions, by ensuring they keep 100% of their earnings while 
+      offering transparent and reliable delivery solutions. more than a service, 
+      loadster fosters a trusted community built on openness, fairness, and shared success.
+    `,
+    techUsed: ["react", "css", "figma", "gcp", "github actions"],
+    linkName: "view live",
+    link: "https://loadster.in/"
+  },
+  {
+    images: [wertetek1, wertetek2, wertetek3, wertetek4],
+    name: "wertetek",
+    description: `
+      wertetek is a multi-domain solutions provider offering expertise in 
+      mechanical, electronics, software, construction, and design. 
+      the website highlights the company’s focus on innovation, 
+      quality, and client-centric services, covering everything from 
+      engineering solutions to web and app development. 
+      built with react and tailwind css, it delivers a modern 
+      and professional digital presence.
+    `,
+    techUsed: ["react", "tailwind css", "emailjs"],
+    linkName: "view live",
     link: "https://wertetek.com/"
   },
   {
     images: [trainease1, trainease2, trainease3, trainease4],
-    name: "TrainEase",
+    name: "trainease",
     description: `
-      A train booking system designed to make travel planning easier. 
-      Built with a strong database backend, it provides features for 
+      a train booking system designed to make travel planning easier. 
+      built with a strong database backend, it provides features for 
       searching trains, booking tickets, and managing travel details. 
-      The platform focuses on being user-friendly while offering 
+      the platform focuses on being user-friendly while offering 
       reliable performance for railway travel requirements.
     `,
-    techUsed: ["React", "Express", "MySQL"],
-    linkName: "View code",
-    link: "https://github.com/srinidhiv2107/trainBookingSystem"
+    techUsed: ["react", "express", "mysql"],
+    linkName: "view code",
+    link: "https://github.com/srinidhiv2107/trainbookingsystem"
   },
   {
     images: [userapp1, userapp2, userapp3, userapp4],
-    name: "UserTrack",
+    name: "usertrack",
     description: `
-    UserTrack is a user management application built to demonstrate 
-    CRUD operations using a Spring Boot backend connected to a MySQL database. 
-    It supports adding, updating, deleting, and searching users, 
-    with database migrations for managing schema changes effectively. 
-    The frontend is developed in React and styled with SCSS, 
-    offering a clean and responsive interface.
-  `,
-    techUsed: ["React", "Spring Boot", "MySQL", "SCSS"],
-    linkName: "View code",
-    link: "https://github.com/srinidhiv2107/UserManagementApp"
+      usertrack is a user management application built to demonstrate 
+      crud operations using a spring boot backend connected to a mysql database. 
+      it supports adding, updating, deleting, and searching users, 
+      with database migrations for managing schema changes effectively. 
+      the frontend is developed in react and styled with scss, 
+      offering a clean and responsive interface.
+    `,
+    techUsed: ["react", "spring boot", "mysql", "scss"],
+    linkName: "view code",
+    link: "https://github.com/srinidhiv2107/usermanagementapp"
   },
 ];

@@ -83,7 +83,6 @@ const Carousel = ({ images }) => {
   const singleImage = images.length === 1;
 
   return (
-    <div className="par">
     <div
       className={`carousel-wrapper ${singleImage ? 'single-image' : ''}`}
       data-current={currentIndex + 1}
@@ -155,7 +154,6 @@ const Carousel = ({ images }) => {
           ))}
         </div>
       )}
-    </div>
     </div>
   );
 };

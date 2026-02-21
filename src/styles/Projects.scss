@@ -1,34 +1,35 @@
 @use "mixins";
 
 .projects-container {
-  @include mixins.displayFlex($fd: column, $ga: 1rem);
+  @include mixins.displayFlex($ai: flex-start);
   width: 100%;
-  padding: 0 2rem;
-
-  > h4 {
-    width: 100%;
-    padding-left: 0.5rem;
-    text-align: start;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  }
+  padding: 0 clamp(0rem, -0.3rem + 1.333vw, 1.2rem);
 
   .project-carousel {
     position: fixed;
     top: 0;
     left: 0;
-    @include mixins.displayFlex($fd: column, $jc: center, $ai: center);
+    @include mixins.displayFlex($ai: flex-start);
     width: 100%;
     height: 100%;
     background: var(--color-black-70);
     backdrop-filter: blur(10px);
     z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: scroll;
 
     .project-carousel-content {
-      @include mixins.displayFlex($fd: column, $ai: center, $ga: 1rem);
+      @include mixins.displayFlex($fd: column, $ga: 1rem);
+      width: 90%;
+      min-height: 100%;
+      padding: 1rem 0;
+
+      @media screen and (min-width: 1100px) {
+        width: 70%;
+      }
 
       .project-carousel-title {
-        font-size: 2rem;
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        font-size: clamp(1.1rem, 0.875rem + 1vw, 2rem);
         animation: fadeIn 1s ease-in-out forwards;
       }
 
@@ -38,7 +39,7 @@
 
         .project-carousel-btn {
           @include mixins.displayFlex($jc: center, $ai: center);
-          padding: 0.8rem;
+          padding: clamp(0.5rem, 0.425rem + 0.333vw, 0.8rem);
           outline: none;
           border-radius: 50%;
           border: 0.1rem solid rgba(255, 255, 255, 0.2);
@@ -49,7 +50,7 @@
           animation: fadeIn 1s ease-in-out forwards;
 
           span {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 0.875rem + 0.556vw, 1.5rem);
           }
 
           &:not(:disabled):hover,
@@ -73,6 +74,19 @@
     grid-gap: 1rem;
     width: 100%;
 
+    @media screen and (max-width: 1250px) {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+
+    @media screen and (max-width: 750px) {
+      grid-template-columns: repeat(1, 1fr); 
+      width: 95%;
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
+
     .project-grid-item {
       @include mixins.displayFlex($jc: flex-start, $fd: column);
       border: 0.1rem solid var(--color-primary-80);
@@ -84,10 +98,6 @@
         box-shadow: 0 0 30px var(--color-primary-30);
       }
 
-      p {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-      }
-
       .project-title {
         width: 100%;
         padding: 0.7rem 1rem;
@@ -95,7 +105,7 @@
         background: transparent;
 
         .title {
-          font-size: 2rem;
+          font-size: clamp(1.1rem, 0.875rem + 1vw, 2rem);
         }
       }
 
@@ -109,6 +119,7 @@
           color: var(--color-white);
           background: none;
           border: none;
+          font-family: var(--ff), sans-serif;
           cursor: pointer;
           transition: all 0.2s ease;
           padding: 0.2rem 0;
@@ -126,19 +137,19 @@
 
         .project-cta-link {
           @include mixins.displayFlex($ga: 0.2rem);
-          font-size: 1rem;
+          font-size: clamp(0.6rem, 0.5rem + 0.444vw, 1rem);
           line-height: 150%;
           color: var(--color-white);
           transition: all 0.2s ease;
 
           span {
-            font-size: 1rem;
+            font-size: clamp(0.6rem, 0.5rem + 0.444vw, 1rem);
             transition: transform 0.2s ease;
           }
         }
 
         .text {
-          font-size: 0.9rem;
+          font-size: clamp(0.7rem, 0.6rem + 0.444vw, 1.1rem);
           line-height: 150%;
         }
 
@@ -147,12 +158,7 @@
           border: 0.1rem solid var(--color-primary-80);
           border-radius: 0.5rem;
           background: var(--color-primary-20);
-          transition: all 0.2s ease;
-
-          &:hover {
-            background: var(--color-primary-30);
-            border-color: var(--color-primary-60);
-          }
+          font-size: clamp(0.6rem, 0.5rem + 0.444vw, 1rem);
         }
 
         .wrapper {
@@ -163,44 +169,6 @@
     }
   }
 }
-
-// Responsive design
-//@media (max-width: 768px) {
-//  .projects-container {
-//    padding: 0 1rem;
-//
-//    .projects-grid {
-//      grid-template-columns: 1fr;
-//      grid-gap: 1.5rem;
-//    }
-//
-//    .project-carousel {
-//      .carousel-content {
-//        max-width: 95vw;
-//        max-height: 85vh;
-//      }
-//
-//      .project-carousel-close-btn {
-//        top: -50px;
-//        right: 10px;
-//        width: 40px;
-//        height: 40px;
-//
-//        .material-symbols-rounded {
-//          font-size: 20px;
-//        }
-//      }
-//    }
-//  }
-//}
-//
-//@media (max-width: 1024px) and (min-width: 769px) {
-//  .projects-container {
-//    .projects-grid {
-//      grid-template-columns: repeat(2, 1fr);
-//    }
-//  }
-//}
 
 @keyframes fadeIn {
   from {

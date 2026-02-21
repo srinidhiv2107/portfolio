@@ -1,5 +1,5 @@
 import React from 'react';
-import myPhoto from "../assets/my-photos/my-photo-3.jpg";
+import myPhoto from "../assets/my-photos/my-photo.jpg";
 import Photo from "./Photo.jsx";
 import About from "./About.jsx";
 import Skills from "./Skills.jsx";
