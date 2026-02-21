@@ -6,7 +6,8 @@ const Context = createContext(null);
 export const useApplicationContext = () => useContext(Context);
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const sections = ["home", "experience", "projects", "resume"];
+// export const sections = ["home", "experience", "projects", "resume"];
+export const sections = ["home", "experience", "projects"];
 
 const ContextProvider = ({ children }) => {
   const [username, setUsername] = useState("");

@@ -24,7 +24,7 @@ export const workData = [
     role: "application developer",
     company: "thoughtworks",
     duration: "june 2025 - present",
-    description: "currently, i'm working at thoughtworks, where i started with training in react and spring boot, and i’m now exploring android development using kotlin while continuing to grow as a developer and learn modern software engineering practices.",
+    description: "currently, i'm working at thoughtworks, where i started with android development using kotlin. i'm now exploring ai and its ecosystem while continuing to grow as a developer and learn modern software engineering practices.",
   },
   {
     role: "frontend developer intern",
@@ -36,7 +36,7 @@ export const workData = [
   {
     role: "web development intern",
     company: "rexsatronix",
-    duration: "jun 2024 - aug 2024",
+    duration: "sep 2024 - oct 2024",
     description: "this is where my journey in web development began. i explored the fundamentals of frontend and backend development and got introduced to react. this internship gave me a solid foundation in building dynamic and interactive web applications.",
     skills: ["html", "css", "javascript", "react"]
   }

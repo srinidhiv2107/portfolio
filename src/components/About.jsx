@@ -50,12 +50,12 @@ const About = () => {
             )}
             , i'm <strong>srinidhi v</strong>, a computer science graduate from nie
             mysuru '25. i'm from mysuru, karnataka, and currently working at
-            thoughtworks as an application developer, focusing on android mobile app
-            development.
+            thoughtworks as an application developer. there, i'm exploring ai and its ecosystem, 
+            focusing on intelligent tools and agent-based systems through hands-on experimentation.
           </p>
           <p>
-            although i chose biology during PUC (reasons many of you might guess), I
-            always had an interest in coding. and when I started to code, I actually
+            although i chose biology during puc (reasons many of you might guess), i
+            always had an interest in coding. and when i started to code, i actually
             started liking problem-solving through programming{" "}
             (my{" "}
             <a
@@ -64,7 +64,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="profile-link"
             >
-              leetCode
+              leetcode
             </a>{" "}
             and{" "}
             <a
@@ -73,7 +73,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="profile-link"
             >
-              hackerRank
+              hackerrank
             </a>{" "}
             profiles). for me, coding feels like a game - of course it's challenging,
             but that feeling when you finally crack a tough problem is totally worth

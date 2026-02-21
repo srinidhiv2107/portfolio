@@ -3,7 +3,7 @@ import { useApplicationContext } from "../contexts/ContextProvider.jsx";
 import Home from "../components/Home.jsx";
 import Experience from "./Experience.jsx";
 import Projects from "./Projects.jsx";
-import Resume from "./Resume.jsx";
+// import Resume from "./Resume.jsx";
 import "../styles/MainContent.scss";
 
 const MainContent = () => {
@@ -17,8 +17,8 @@ const MainContent = () => {
         return <Experience />;
       case 'projects':
         return <Projects />;
-      case 'resume':
-        return <Resume />;
+      // case 'resume':
+      //   return <Resume />;
       default:
         return <Home />;
     }
