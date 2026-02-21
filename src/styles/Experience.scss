@@ -3,17 +3,30 @@
 .experience-container {
   @include mixins.displayFlex($jc: space-evenly, $ai: flex-start, $ga: 2rem);
   width: 90%;
-  margin: auto 0;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
 }
 
 .timeline {
-  width: 45%;
+  width: 100%;
   position: relative;
   @include mixins.displayFlex($ai: flex-start, $fd: column);
 
+  @media screen and (min-width: 1400px) {
+    width: 45%;
+  }
+
+  @media screen and (min-width: 800px) and (max-width: 900px) {
+    width: 90%;
+  }
+
   .checkpoint {
     position: relative;
-    padding-left: 2rem;
+    padding-left: clamp(1rem, 0.75rem + 1.111vw, 2rem);
     padding-block: 0.5em;
     border-left: 0.1rem solid var(--color-primary-80);
     width: 100%;
@@ -31,7 +44,7 @@
       position: absolute;
       top: 50%;
       left: 0;
-      width: 2rem;
+      width: clamp(1rem, 0.75rem + 1.111vw, 2rem);
       height: 0.1rem;
       background: var(--color-primary-80);
     }
@@ -42,19 +55,21 @@
       top: 50%;
       left: 0;
       width: 0.7rem;
-      aspect-ratio: 1/1;
+      aspect-ratio: 1;
       transform: translate(calc((50% + 0.05rem) * -1), calc((50% - 0.05rem) * -1));
       border-radius: 50%;
       background: var(--color-primary);
     }
 
     .checkpoint-header {
-      flex-direction: row;
-      justify-content: flex-start;
+      @include mixins.displayFlex($jc: flex-start, $ga: 0.3rem);
+      padding: 0.5rem 1rem;
 
       span, h4 {
+        font-size: clamp(1.1rem, 0.875rem + 1vw, 2rem);
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         font-weight: var(--font-medium);
+        text-wrap: nowrap;
       }
     }
 
@@ -65,25 +80,23 @@
       border-radius: 1rem;
       background: var(--color-primary-10);
 
-      p {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-      }
-
       .heading {
-        font-size: 1.2rem;
+        font-size: clamp(0.8rem, 0.7rem + 0.444vw, 1.2rem);
       }
       .sub-heading {
-        font-size: 1.1rem;
+        font-size: clamp(0.7rem, 0.6rem + 0.444vw, 1.1rem);
       }
       .text {
-        font-size: 0.9rem;
+        font-size: clamp(0.6rem, 0.5rem + 0.444vw, 1rem);
         line-height: 150%;
       }
       .label {
-        padding: 0.3rem 0.5rem;
+        padding: 0.2rem 0.5rem;
         border: 0.1rem solid var(--color-primary-80);
         border-radius: 0.5rem;
         background: var(--color-primary-20);
+        font-size: clamp(0.6rem, 0.5rem + 0.444vw, 1rem);
+        vertical-align: top;
       }
       .wrapper {
         @include mixins.displayFlex($jc: space-between, $fwr: wrap);

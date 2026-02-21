@@ -87,7 +87,7 @@ const About = () => {
           </p>
           <p>
             outside of tech, I enjoy drawing, playing badminton, and watching movies.
-            i'm a big fan of south indian cinema and the marvel cinematic Universe
+            i'm a big fan of south indian cinema and the marvel cinematic universe
             (rdj as iron man is one of my favourites).
           </p>
           <p>

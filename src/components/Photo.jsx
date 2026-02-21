@@ -34,10 +34,13 @@ const Photo = ({ photoSrc, alt }) => {
       {showBubble && <div className="photo-backdrop"></div>}
       <div
         className="space-photo-holder"
-        style={{ zIndex: `${showBubble ? 1000 : 'auto'}` }}
+        style={{ zIndex: `${showBubble ? 1000 : 'auto'}`, pointerEvents: "none" }}
       >
         {showBubble && (
-          <div className="speech-bubble">
+          <div 
+            className="speech-bubble"
+            style={{ pointerEvents: "auto" }}
+          >
             <p className="speech-text">hey can you please type in your name?</p>
             <input
               type="text"
