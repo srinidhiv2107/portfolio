@@ -5,6 +5,7 @@ import "../styles/About.scss";
 const About = () => {
   const { username, setUsername } = useApplicationContext();
   const [tempUsername, setTempUsername] = useState("");
+  const [glowing, setGlowing] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
@@ -17,7 +18,22 @@ const About = () => {
 
   useEffect(() => {
     setTempUsername(username);
-  }, [username])
+  }, [username]);
+
+  useEffect(() => {
+    const trigger = setTimeout(() => {
+      setGlowing(true);
+    }, 10);
+
+    const reset = setTimeout(() => {
+      setGlowing(false);
+    }, 1300);
+
+    return () => {
+      clearTimeout(trigger);
+      clearTimeout(reset);
+    };
+  }, [username]);
 
   const handleOnBlur = () => {
     const value = tempUsername.trim();
@@ -44,7 +60,8 @@ const About = () => {
                   value={tempUsername}
                   onChange={(e) => setTempUsername(e.target.value)}
                   onBlur={handleOnBlur}
-                  className="username-field"
+                  className={`username-field ${glowing? 'glow': ''}`}
+                  autocomplete="off"
                 />
               </>
             )}

@@ -49,6 +49,11 @@
         color: var(--color-white);
         font-family: var(--ff), sans-serif;
         font-size: clamp(0.8rem, 0.7rem + 0.444vw, 1.2rem);
+        box-shadow: 0 0 0 0 transparent;
+
+        &.glow {
+          animation: smooth-glow 1s ease-in-out forwards;
+        }
       }
 
       @media screen and (max-width: 800px) {
@@ -86,5 +91,20 @@
         display: flex;
       }
     }
+  }
+}
+
+@keyframes smooth-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,255,255,0);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 5px 5px var(--color-primary-70);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255,255,255,0);
+    transform: scale(1);
   }
 }

@@ -3,6 +3,7 @@ import python from "../assets/icons/Python.svg";
 import c from "../assets/icons/C.svg";
 import cpp from "../assets/icons/CPP.svg";
 import js from "../assets/icons/JavaScript.svg";
+import ts from "../assets/icons/TypeScript.svg";
 import java from "../assets/icons/Java.svg";
 import kotlin from "../assets/icons/Kotlin.svg";
 import html from "../assets/icons/HTML.svg";
@@ -32,6 +33,7 @@ const skills = [
   { name: "python", icon: python },
   { name: "c++", icon: cpp },
   { name: "javascript", icon: js },
+  { name: "typescript", icon: ts },
   { name: "java", icon: java },
   { name: "kotlin", icon: kotlin },
   { name: "html", icon: html },

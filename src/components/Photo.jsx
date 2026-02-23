@@ -12,7 +12,7 @@ const Photo = ({ photoSrc, alt }) => {
       if(!seenBubble) setShowBubble(true);
     };
 
-    setTimeout(handleSpeechBubble, 4000);
+    setTimeout(handleSpeechBubble, 6000);
   }, []);
 
   const handleSpeechBubbleClose = () => {
@@ -41,7 +41,7 @@ const Photo = ({ photoSrc, alt }) => {
             className="speech-bubble"
             style={{ pointerEvents: "auto" }}
           >
-            <p className="speech-text">hey can you please type in your name?</p>
+            <p className="speech-text">how can i call you?</p>
             <input
               type="text"
               placeholder="enter your name"
