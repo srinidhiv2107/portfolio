@@ -61,7 +61,7 @@ const About = () => {
                   onChange={(e) => setTempUsername(e.target.value)}
                   onBlur={handleOnBlur}
                   className={`username-field ${glowing? 'glow': ''}`}
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </>
             )}
