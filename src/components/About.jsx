@@ -71,8 +71,8 @@ const About = () => {
             focusing on intelligent tools and agent-based systems through hands-on experimentation.
           </p>
           <p>
-            although i chose biology during puc (reasons many of you might guess), i
-            always had an interest in coding. and when i started to code, i actually
+            although i chose biology during puc, i
+            always had an interest in coding. and when i started to code, i 
             started liking problem-solving through programming{" "}
             (my{" "}
             <a
@@ -103,9 +103,9 @@ const About = () => {
             :).
           </p>
           <p>
-            outside of tech, I enjoy drawing, playing badminton, and watching movies.
-            i'm a big fan of south indian cinema and the marvel cinematic universe
-            (rdj as iron man is one of my favourites).
+            outside of tech, i enjoy drawing, playing badminton, and watching movies. 
+            i enjoy south indian cinema and the marvel cinematic universe, 
+            with robert downey jr.'s portrayal of iron man being one of my favourites.
           </p>
           <p>
             that's a little about me. feel free to explore the rest of my site, and

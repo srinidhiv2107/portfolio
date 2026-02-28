@@ -41,7 +41,7 @@ const Photo = ({ photoSrc, alt }) => {
             className="speech-bubble"
             style={{ pointerEvents: "auto" }}
           >
-            <p className="speech-text">how can i call you?</p>
+            <p className="speech-text">hello! what should i call you?</p>
             <input
               type="text"
               placeholder="enter your name"
