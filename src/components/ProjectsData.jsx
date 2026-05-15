@@ -22,20 +22,20 @@ import userapp2 from "../assets/project-images/users-app-2.png";
 import userapp3 from "../assets/project-images/users-app-3.png";
 import userapp4 from "../assets/project-images/users-app-4.png";
 
-// import loadster1 from "../assets/project-images/loadster-1.png";
-// import loadster2 from "../assets/project-images/loadster-2.png";
-// import loadster3 from "../assets/project-images/loadster-3.png";
-// import loadster4 from "../assets/project-images/loadster-4.png";
+import loadster1 from "../assets/project-images/loadster-1.png";
+import loadster2 from "../assets/project-images/loadster-2.png";
+import loadster3 from "../assets/project-images/loadster-3.png";
+import loadster4 from "../assets/project-images/loadster-4.png";
 
-// import studiodumin1 from "../assets/project-images/studiodumin-1.png";
-// import studiodumin2 from "../assets/project-images/studiodumin-2.png";
-// import studiodumin3 from "../assets/project-images/studiodumin-3.png";
-// import studiodumin4 from "../assets/project-images/studiodumin-4.png";
+import studiodumin1 from "../assets/project-images/studiodumin-1.png";
+import studiodumin2 from "../assets/project-images/studiodumin-2.png";
+import studiodumin3 from "../assets/project-images/studiodumin-3.png";
+import studiodumin4 from "../assets/project-images/studiodumin-4.png";
 
-// import wertetek1 from "../assets/project-images/wertetek-1.png";
-// import wertetek2 from "../assets/project-images/wertetek-2.png";
-// import wertetek3 from "../assets/project-images/wertetek-3.png";
-// import wertetek4 from "../assets/project-images/wertetek-4.png";
+import wertetek1 from "../assets/project-images/wertetek-1.png";
+import wertetek2 from "../assets/project-images/wertetek-2.png";
+import wertetek3 from "../assets/project-images/wertetek-3.png";
+import wertetek4 from "../assets/project-images/wertetek-4.png";
 
 export const projectsData = [
   {
@@ -84,51 +84,51 @@ export const projectsData = [
     linkName: "view code",
     link: "https://github.com/srinidhiv2107/wordle"
   },
-  // {
-  //   images: [studiodumin1, studiodumin2, studiodumin3, studiodumin4],
-  //   name: "studiodumin",
-  //   description: `
-  //     studiodumin is an interior design agency website that showcases creative 
-  //     and functional design solutions for modern living spaces. it highlights 
-  //     the agency’s expertise in blending aesthetics with practicality, 
-  //     staying updated with trends, and delivering personalized experiences. 
-  //     built with react and scss, the site provides a clean and engaging 
-  //     digital presence for the brand.
-  //   `,
-  //   techUsed: ["react", "scss", "figma", "emailjs"],
-  //   linkName: "view live",
-  //   link: "https://studiodumin.com/"
-  // },
-  // {
-  //   images: [loadster1, loadster2, loadster3, loadster4],
-  //   name: "loadster",
-  //   description: `
-  //     loadster is a zero-commission delivery platform built to connect 
-  //     businesses and individuals with drivers seamlessly. it empowers driver partners, 
-  //     called champions, by ensuring they keep 100% of their earnings while 
-  //     offering transparent and reliable delivery solutions. more than a service, 
-  //     loadster fosters a trusted community built on openness, fairness, and shared success.
-  //   `,
-  //   techUsed: ["react", "css", "figma", "gcp", "github actions"],
-  //   linkName: "view live",
-  //   link: "https://loadster.in/"
-  // },
-  // {
-  //   images: [wertetek1, wertetek2, wertetek3, wertetek4],
-  //   name: "wertetek",
-  //   description: `
-  //     wertetek is a multi-domain solutions provider offering expertise in 
-  //     mechanical, electronics, software, construction, and design. 
-  //     the website highlights the company’s focus on innovation, 
-  //     quality, and client-centric services, covering everything from 
-  //     engineering solutions to web and app development. 
-  //     built with react and tailwind css, it delivers a modern 
-  //     and professional digital presence.
-  //   `,
-  //   techUsed: ["react", "tailwind css", "emailjs"],
-  //   linkName: "view live",
-  //   link: "https://wertetek.com/"
-  // },
+  {
+    images: [studiodumin1, studiodumin2, studiodumin3, studiodumin4],
+    name: "studiodumin",
+    description: `
+      studiodumin is an interior design agency website that showcases creative 
+      and functional design solutions for modern living spaces. it highlights 
+      the agency’s expertise in blending aesthetics with practicality, 
+      staying updated with trends, and delivering personalized experiences. 
+      built with react and scss, the site provides a clean and engaging 
+      digital presence for the brand.
+    `,
+    techUsed: ["react", "scss", "figma", "emailjs"],
+    linkName: "view live",
+    link: "https://studiodumin.com/"
+  },
+  {
+    images: [loadster1, loadster2, loadster3, loadster4],
+    name: "loadster",
+    description: `
+      loadster is a zero-commission delivery platform built to connect 
+      businesses and individuals with drivers seamlessly. it empowers driver partners, 
+      called champions, by ensuring they keep 100% of their earnings while 
+      offering transparent and reliable delivery solutions. more than a service, 
+      loadster fosters a trusted community built on openness, fairness, and shared success.
+    `,
+    techUsed: ["react", "css", "figma", "gcp", "github actions"],
+    linkName: "view live",
+    link: "https://loadster.in/"
+  },
+  {
+    images: [wertetek1, wertetek2, wertetek3, wertetek4],
+    name: "wertetek",
+    description: `
+      wertetek is a multi-domain solutions provider offering expertise in 
+      mechanical, electronics, software, construction, and design. 
+      the website highlights the company’s focus on innovation, 
+      quality, and client-centric services, covering everything from 
+      engineering solutions to web and app development. 
+      built with react and tailwind css, it delivers a modern 
+      and professional digital presence.
+    `,
+    techUsed: ["react", "tailwind css", "emailjs"],
+    linkName: "view live",
+    link: "https://wertetek.com/"
+  },
   {
     images: [trainease1, trainease2, trainease3, trainease4],
     name: "trainease",
