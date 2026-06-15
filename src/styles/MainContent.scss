@@ -19,4 +19,16 @@
   padding: 1.5rem 1rem;
   overflow-x: hidden;
   overflow-y: scroll;
+  @include mixins.fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

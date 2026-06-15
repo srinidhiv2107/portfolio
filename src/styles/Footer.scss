@@ -9,4 +9,5 @@
   border-top: 0.1rem solid var(--color-primary-70);
   background: var(--color-black-50);
   backdrop-filter: blur(1px);
+  @include mixins.fadeIn;
 }

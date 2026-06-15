@@ -1,0 +1,64 @@
+@use "mixins";
+
+.intro {
+  @include mixins.displayFlex();
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: transparent;
+  overflow: hidden;
+  // Smooth fade-out of the overlay once the explode animation begins
+  transition: opacity 0.5s ease-in-out;
+  &.fading {
+    opacity: 0;
+    transition-delay: 0.5s; // Wait for the explode to mostly play out before fading the overlay
+    pointer-events: none;
+  }
+  &-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: clamp(1.8rem, 1.4rem + 2vw, 3rem);
+    font-weight: 700;
+    vertical-align: baseline;
+    color: var(--color-white);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    // Explosive scale-up + fade-out + blur, like flying toward the viewer
+    &.exploding {
+      animation: explode 2s cubic-bezier(0.6, 0, 0.9, 0.4) forwards;
+    }
+    // Blinking cursor, shown throughout idle / typing / pausing phases
+    span:last-child {
+      display: inline-block;
+      margin-left: 0.15rem;
+      width: 0.5rem;
+      height: 1em;
+      vertical-align: top;
+      background: var(--color-white);
+      animation: blink 1s step-start infinite;
+    }
+  }
+}
+
+// Blinking cursor
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+// Text scales up massively, rotates slightly, and blurs/fades away
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(75);
+    filter: blur(2px);
+  }
+}
