@@ -57,18 +57,21 @@ const Projects = () => {
             >
               view gallery
             </button>
-            <a
-              href={projectData.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-cta-link"
-            >
-              {projectData.linkName}
-              {projectData.linkName === "view code"?
-                <span className="material-symbols-rounded">call_made</span>:
-                <span className="material-symbols-rounded">language</span>
-              }
-            </a>
+            {
+              projectData?.link && (
+                <a
+                  href={projectData.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-cta-link"
+                >
+                  {projectData.linkName}
+                  <span className="material-symbols-rounded">
+                    {projectData.linkName === "view code" ? "call_made" : "language"}
+                  </span>
+                </a>
+              )
+            }
           </div>
           <p className="text">{projectData.description}</p>
           <div className="wrapper">

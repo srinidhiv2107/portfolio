@@ -39,6 +39,51 @@ import wertetek4 from "../assets/project-images/wertetek-4.png";
 
 export const projectsData = [
   {
+    images: [studiodumin1, studiodumin2, studiodumin3, studiodumin4],
+    name: "studiodumin",
+    description: `
+      studiodumin is an interior design agency website that showcases creative 
+      and functional design solutions for modern living spaces. it highlights 
+      the agency’s expertise in blending aesthetics with practicality, 
+      staying updated with trends, and delivering personalized experiences. 
+      built with react and scss, the site provides a clean and engaging 
+      digital presence for the brand.
+    `,
+    techUsed: ["react", "scss", "figma", "emailjs"],
+    linkName: "view live",
+    // link: "https://studiodumin.com/"
+  },
+  {
+    images: [loadster1, loadster2, loadster3, loadster4],
+    name: "loadster",
+    description: `
+      loadster is a zero-commission delivery platform built to connect 
+      businesses and individuals with drivers seamlessly. it empowers driver partners, 
+      called champions, by ensuring they keep 100% of their earnings while 
+      offering transparent and reliable delivery solutions. more than a service, 
+      loadster fosters a trusted community built on openness, fairness, and shared success.
+    `,
+    techUsed: ["react", "css", "figma", "gcp", "github actions"],
+    linkName: "view live",
+    // link: "https://loadster.in/"
+  },
+  {
+    images: [nlqe1, nlqe2, nlqe3, nlqe4, nlqe5],
+    name: "nlqe",
+    description: `
+    natural language query executor (nlqe) is web tool that allows users to run sql queries directly or 
+    by using natural language. it supports converting nlq 
+    (natural language queries) to sql with gemini ai, 
+    database visualization, and query explanation, analysis and enhancement. 
+    users can also view database tables and manage a history 
+    of executed queries, making it easier to understand 
+    and interact with data.
+    `,
+    techUsed: ["react", "express", "mysql", "gemini ai"],
+    linkName: "view code",
+    link: "https://github.com/srinidhiv2107/naturallanguagequeryexecutor"
+  },
+  {
     images: [fixngo1, fixngo2],
     name: "fixngo",
     description: `
@@ -55,22 +100,6 @@ export const projectsData = [
     link: "https://github.com/niranjanbhat123/major_project"
   },
   {
-    images: [nlqe1, nlqe2, nlqe3, nlqe4, nlqe5],
-    name: "nlqe",
-    description: `
-      natural language query executor (nlqe) is web tool that allows users to run sql queries directly or 
-      by using natural language. it supports converting nlq 
-      (natural language queries) to sql with gemini ai, 
-      database visualization, and query explanation, analysis and enhancement. 
-      users can also view database tables and manage a history 
-      of executed queries, making it easier to understand 
-      and interact with data.
-    `,
-    techUsed: ["react", "express", "mysql", "gemini ai"],
-    linkName: "view code",
-    link: "https://github.com/srinidhiv2107/naturallanguagequeryexecutor"
-  },
-  {
     images: [wordle1, wordle2, wordle3, wordle4],
     name: "wordle clone",
     description: `
@@ -83,35 +112,6 @@ export const projectsData = [
     techUsed: ["react", "express", "node.js", "mongodb"],
     linkName: "view code",
     link: "https://github.com/srinidhiv2107/wordle"
-  },
-  {
-    images: [studiodumin1, studiodumin2, studiodumin3, studiodumin4],
-    name: "studiodumin",
-    description: `
-      studiodumin is an interior design agency website that showcases creative 
-      and functional design solutions for modern living spaces. it highlights 
-      the agency’s expertise in blending aesthetics with practicality, 
-      staying updated with trends, and delivering personalized experiences. 
-      built with react and scss, the site provides a clean and engaging 
-      digital presence for the brand.
-    `,
-    techUsed: ["react", "scss", "figma", "emailjs"],
-    linkName: "view live",
-    link: "https://studiodumin.com/"
-  },
-  {
-    images: [loadster1, loadster2, loadster3, loadster4],
-    name: "loadster",
-    description: `
-      loadster is a zero-commission delivery platform built to connect 
-      businesses and individuals with drivers seamlessly. it empowers driver partners, 
-      called champions, by ensuring they keep 100% of their earnings while 
-      offering transparent and reliable delivery solutions. more than a service, 
-      loadster fosters a trusted community built on openness, fairness, and shared success.
-    `,
-    techUsed: ["react", "css", "figma", "gcp", "github actions"],
-    linkName: "view live",
-    link: "https://loadster.in/"
   },
   {
     images: [wertetek1, wertetek2, wertetek3, wertetek4],
