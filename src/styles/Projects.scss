@@ -4,6 +4,7 @@
   @include mixins.displayFlex($ai: flex-start);
   width: 100%;
   padding: 0 clamp(0rem, -0.3rem + 1.333vw, 1.2rem);
+  @include mixins.fadeIn;
 
   .project-carousel {
     position: fixed;

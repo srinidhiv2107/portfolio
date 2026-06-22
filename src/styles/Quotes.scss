@@ -16,6 +16,7 @@
   &-label {
     @include mixins.displayFlex($ga: 0.5rem);
     padding: 0.4rem 1.5rem 0.4rem 1rem;
+    cursor: pointer;
 
     p,
     span {
@@ -33,7 +34,6 @@
       border-radius: 0.5rem;
       background: var(--color-primary-20);
       backdrop-filter: blur(var(--glass-blur));
-      cursor: pointer;
       transition: transform 0.3s ease-in-out;
 
       &.arrow-icon {

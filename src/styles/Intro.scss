@@ -1,0 +1,149 @@
+@use "mixins";
+
+// ─── intro overlay ───────────────────────────────────────────────────────────
+// Sits fixed over the entire viewport, above everything (z-index: 1000).
+// Removed once the curtain completes and onComplete fires in App.jsx.
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  @include mixins.displayFlex($fd: column);
+
+  background: #02030e;
+  overflow: hidden;
+  user-select: none;
+}
+
+// ─── starfield canvas ────────────────────────────────────────────────────────
+
+.intro__starfield {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+// ─── text row ────────────────────────────────────────────────────────────────
+// Wrapping flex row that holds each individual letter span.
+// perspective enables the rotateX exit depth effect.
+
+.intro__text-row {
+  position: relative;
+  z-index: 2;
+
+  @include mixins.displayFlex;
+  flex-wrap: wrap;
+  perspective: 800px;
+}
+
+// ─── individual letter ───────────────────────────────────────────────────────
+
+.intro__letter {
+  display: inline-block;
+  min-width: 0.8rem;
+  text-align: center;
+
+  font-size: clamp(1.4rem, 4.5vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: 0.35rem;
+
+  // Default: invisible (pending state)
+  color: var(--color-white, #c8dcff);
+  opacity: 0;
+
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  transition: color 0.12s ease, text-shadow 0.12s ease;
+
+  // Space characters — fixed width gap, no min-width override
+  &--space {
+    min-width: unset;
+    width: clamp(6px, 1.2vw, 14px);
+  }
+
+  // Scrambling: blue tint + glow, letter is randomly cycling
+  &--scrambling {
+    opacity: 1;
+    color: var(--color-primary, #3a7fdf);
+    text-shadow: 0 0 16px var(--color-primary, #3a7fdf);
+  }
+
+  // Resolved: settled to correct letter, soft glow
+  &--resolved {
+    animation: intro-letter-in 0.18s ease forwards;
+    color: var(--color-white, #c8dcff);
+    text-shadow: 0 0 24px rgba(100, 180, 255, 0.35);
+  }
+
+  // Exiting: rotateX flip + blur — applied via JS when exit phase begins
+  &--exiting {
+    // Duration is randomised per-letter in JS (600–800ms) for organic feel
+    animation: intro-letter-exit 700ms ease-in forwards;
+  }
+
+  // Gone: animation done, letter is invisible
+  &--gone {
+    opacity: 0;
+    animation: none;
+  }
+}
+
+// ─── curtain overlay ─────────────────────────────────────────────────────────
+// Transparent by default. When --visible is added (near end of exit),
+// fades to solid black to cover the dissolve and reveal the app underneath.
+
+.intro__curtain {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+
+  background: #02030e;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 900ms ease;
+
+  &--visible {
+    opacity: 1;
+  }
+}
+
+// ─── keyframes ───────────────────────────────────────────────────────────────
+
+// Letter appears from slightly below on resolve
+@keyframes intro-letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Letter flips on the X axis (top-to-bottom) and blurs out on exit
+@keyframes intro-letter-exit {
+  0% {
+    opacity: 1;
+    transform: rotateX(0deg) translateX(0);
+    filter: blur(0);
+  }
+  40% {
+    opacity: 0.8;
+    transform: rotateX(90deg) translateX(4px);
+    filter: blur(1px);
+  }
+  70% {
+    opacity: 0.3;
+    transform: rotateX(180deg) translateX(-6px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateX(220deg) translateX(10px);
+    filter: blur(8px);
+  }
+}

@@ -5,6 +5,7 @@ import '../styles/Photo.scss';
 const Photo = ({ photoSrc, alt }) => {
   const [showBubble, setShowBubble] = useState(false);
   const { username, setUsername } = useApplicationContext();
+  const [photoLoaded, setPhotoLoaded] = useState(false);
 
   useEffect(() => {
     const handleSpeechBubble = () => {
@@ -56,8 +57,15 @@ const Photo = ({ photoSrc, alt }) => {
           </div>
         )}
 
-        <div className="photo-frame">
-          <img src={photoSrc} alt={alt} className="photo" />
+        <div className={`photo-frame ${photoLoaded ? "loaded" : ""}`}>
+          {!photoLoaded && <div className="photo-frame-shimmer" />}
+
+          <img
+            src={photoSrc}
+            alt={alt}
+            className="photo"
+            onLoad={() => setPhotoLoaded(true)}
+          />
         </div>
 
         {/* orbits */}

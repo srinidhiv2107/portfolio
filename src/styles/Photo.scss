@@ -128,16 +128,21 @@
   aspect-ratio: 1;
   padding: clamp(0.3rem, 0.25rem + 0.222vw, 0.5rem);
   border-radius: 1.5rem;
-  background: linear-gradient(
-    145deg,
-    var(--color-primary-50),
-    var(--color-primary-20)
-  );
+  background: linear-gradient(145deg, var(--color-primary-50), var(--color-primary-20));
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.5),
     inset 0 2px 8px rgba(255, 255, 255, 0.4),
     0 0 20px rgba(0, 150, 255, 0.4);
   overflow: hidden;
+
+  &-shimmer {
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background-size: 200% 100%;
+    @include mixins.shimmer;
+  }
 }
 
 .photo {
@@ -145,8 +150,12 @@
   height: 100%;
   border-radius: 1rem;
   object-fit: cover;
-  overflow: hidden;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-frame.loaded .photo {
+  opacity: 1;
 }
 
 .orbit-container {

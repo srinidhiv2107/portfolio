@@ -52,7 +52,7 @@
         box-shadow: 0 0 0 0 transparent;
 
         &.glow {
-          animation: smooth-glow 1s ease-in-out forwards;
+          animation: smooth-glow calc(1s + var(--fade-in-duration)) ease-in-out forwards;
         }
       }
 

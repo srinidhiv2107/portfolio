@@ -65,11 +65,14 @@ const Contact = () => {
 
   return (
     <div className="contact" data-form-open={`${contactToggle}`}>
-      <div className="contact-label" data-form-open={`${contactToggle}`}>
+      <div 
+        className="contact-label" 
+        data-form-open={`${contactToggle}`}
+        onClick={handleContactToggle}
+      >
         <p className="p2">contact</p>
         <span
           className={`material-symbols-rounded arrow-icon ${contactToggle ? "rotated" : ""}`}
-          onClick={handleContactToggle}
         >
           arrow_drop_down
         </span>

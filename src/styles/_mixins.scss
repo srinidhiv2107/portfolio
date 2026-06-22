@@ -13,3 +13,32 @@
   gap: $ga;
   flex-wrap: $fwr;
 }
+
+@keyframes mixin-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@mixin fadeIn($duration: var(--fade-in-duration)) {
+  animation: mixin-fadeIn $duration ease-out;
+}
+
+@keyframes mixin-shimmer {
+  from {
+    background-position: -200% 0;
+  }
+
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@mixin shimmer($duration: var(--shimmer-duration)) {
+  animation: mixin-shimmer $duration infinite;
+}

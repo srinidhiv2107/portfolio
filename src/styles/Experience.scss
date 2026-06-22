@@ -3,6 +3,7 @@
 .experience-container {
   @include mixins.displayFlex($jc: space-evenly, $ai: flex-start, $ga: 2rem);
   width: 90%;
+  @include mixins.fadeIn;
 
   @media screen and (max-width: 900px) {
     flex-direction: column;

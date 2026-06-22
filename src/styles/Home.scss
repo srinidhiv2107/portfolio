@@ -4,6 +4,7 @@
   @include mixins.displayFlex($fd: column, $ga: 2rem);
   width: 80%;
   margin: auto 0;
+  @include mixins.fadeIn;
 
   @media screen and (max-width: 750px) {
     width: 90%;

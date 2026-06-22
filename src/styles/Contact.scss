@@ -21,6 +21,7 @@
     border-left: 0.15rem solid var(--color-primary-70);
     background: transparent;
     backdrop-filter: blur(var(--glass-blur));
+    cursor: pointer;
 
     &[data-form-open="true"] {
       background: var(--color-black);
@@ -38,7 +39,6 @@
 
     span {
       font-size: clamp(1.2rem, 1.15rem + 0.222vw, 1.4rem);
-      cursor: pointer;
       background: var(--color-primary-20);
       border: 0.1rem solid var(--color-primary-70);
       border-radius: 0.5rem;

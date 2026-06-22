@@ -58,10 +58,9 @@ const Quotes = () => {
 
   return (
     <div className="quotes">
-      <div className="quotes-label">
+      <div className="quotes-label" onClick={handleQuotesToggle}>
         <span
           className={`material-symbols-rounded arrow-icon ${quotesToggle ? "rotated" : ""}`}
-          onClick={handleQuotesToggle}
         >
           arrow_drop_down
         </span>
