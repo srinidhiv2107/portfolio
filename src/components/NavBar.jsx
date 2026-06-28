@@ -41,6 +41,10 @@ const NavBar = () => {
     };
   }, []);
 
+  const handleActiveSectionChange = (section) => {
+    setActiveSection(section);
+  }
+
   const handleMenuToggle = () => {
     setMenuToggle(!menuToggle);
   }
@@ -58,7 +62,7 @@ const NavBar = () => {
             <div
               key={index}
               className={`nav-item ${activeSection === item ? 'active' : ''}`}
-              onClick={() => setActiveSection(item)}
+              onClick={() => handleActiveSectionChange(item)}
             >
               <p className="p2">
                 {item}
@@ -83,7 +87,7 @@ const NavBar = () => {
             <div
               key={index}
               className={`nav-item ${activeSection === item ? 'active' : ''}`}
-              onClick={() => setActiveSection(item)}
+              onClick={() => handleActiveSectionChange(item)}
             >
               <p className="p2">
                 {item}

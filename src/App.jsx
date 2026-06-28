@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { trackPageView } from "./utils/analytics";
 import ContextProvider from "./contexts/ContextProvider.jsx";
 import Header from "./components/Header.jsx";
 import SpaceBackground from "./components/SpaceBackground.jsx";
@@ -7,9 +8,11 @@ import MainContent from "./components/MainContent.jsx";
 import Intro from "./components/Intro.jsx";
 
 const App = () => {
-  // Controls whether the intro screen is mounted.
-  // Once Intro fires onComplete, this flips to false and unmounts it.
   const [showIntro, setShowIntro] = useState(true);
+
+   useEffect(() => {
+        trackPageView();
+    }, []);
 
   return (
     <ContextProvider>

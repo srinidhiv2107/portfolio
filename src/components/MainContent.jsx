@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useApplicationContext } from "../contexts/ContextProvider.jsx";
+import { trackSectionView } from "../utils/analytics.js";
 import Home from "../components/Home.jsx";
 import Experience from "./Experience.jsx";
 import Projects from "./Projects.jsx";
@@ -8,6 +9,10 @@ import "../styles/MainContent.scss";
 
 const MainContent = () => {
   const { activeSection } = useApplicationContext();
+
+  useEffect(() => {
+    trackSectionView(activeSection);
+  }, [activeSection]);
 
   const renderSection = () => {
     switch(activeSection) {
