@@ -51,7 +51,7 @@ export const projectsData = [
     `,
     techUsed: ["react", "scss", "figma", "emailjs"],
     linkName: "view live",
-    // link: "https://studiodumin.com/"
+    link: "https://studiodumin.com/"
   },
   {
     images: [loadster1, loadster2, loadster3, loadster4],
@@ -65,7 +65,7 @@ export const projectsData = [
     `,
     techUsed: ["react", "css", "figma", "gcp", "github actions"],
     linkName: "view live",
-    // link: "https://loadster.in/"
+    link: "https://loadster.in/"
   },
   {
     images: [nlqe1, nlqe2, nlqe3, nlqe4, nlqe5],

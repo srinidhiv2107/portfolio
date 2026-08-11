@@ -3,7 +3,9 @@ import { quotes } from "./QuotesList.jsx";
 import "../styles/Quotes.scss";
 
 const Quotes = () => {
-  const [quotesToggle, setQuotesToggle] = useState(false);
+  const [quotesToggle, setQuotesToggle] = useState(
+    window.matchMedia("(min-width: 1200px)").matches
+  );
   const [displayText, setDisplayText] = useState("");
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
